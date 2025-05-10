@@ -1,7 +1,8 @@
 import React from 'react'
-import { Text } from 'react-native';
+import Navigations from './src/navigations/Navigations';
+
 const App = () => {
-  return ( <Text>coba doang cuy</Text> );
+  return <Navigations/>
 }
  
 export default App;
