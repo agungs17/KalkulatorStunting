@@ -2,6 +2,7 @@
 
 import { isNumber, isString, isInteger } from 'lodash-es'
 import { Dimensions, PixelRatio, Platform } from 'react-native'
+import { TYPE_CHILDS } from './constants'
 
 const {
   width: SCREEN_WIDTH,
@@ -64,4 +65,44 @@ export const WidthPercentageToDP = widthPercent => {
     return PixelRatio.roundToNearestPixel((SCREEN_WIDTH * elemHeight) / 100)
   }
   return 0
+}
+
+export const getTypeChild = (age) => {
+  if(age >= 0 && age <= 24) return TYPE_CHILDS[0]
+  if(age > 24 && age <= 60) return TYPE_CHILDS[1]
+}
+
+export const getRoundDownHeight = (num) => {
+  const parsed = parseFloat(num.replace(',', '.'));
+  const result = Math.floor(parsed * 2) / 2;
+  return result.toFixed(1).replace('.', ',');
+}
+
+const isNegative = (value) => typeof value === 'number' && value < 0;
+
+export const generateZScore = (value, data) => {
+  const median = data.m;
+  const v1 = value - median
+  const isNeg = isNegative(v1)
+
+  const v2 = isNeg ? median - data.min1SD : data.plus1SD - median
+  const zScore = v1 / v2
+  return {
+    zScore,
+    category : categorizeZScore(zScore),
+  }
+}
+
+function categorizeZScore(z) {
+  if (z < -2) {
+    return 'Sangat Kurang';
+  } else if (z >= -2 && z < -1) {
+    return 'Kurang';
+  } else if (z >= -1 && z < 1) {
+    return 'Normal';
+  } else if (z >= 1 && z < 2) {
+    return 'Lebih';
+  } else {
+    return 'Sangat Lebih';
+  }
 }
