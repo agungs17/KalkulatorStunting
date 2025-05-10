@@ -6,7 +6,7 @@ import { COLORS } from "../../utils/themes";
 const Text = ({
   children,
   containerStyle,
-  fontStyle,
+  textStyle,
   fontSize = 14,
   fontWeight = "400", // 400 = normal, 500 = medium, 600 = semi-bold, 700 = bold
   color = COLORS.BLACK,
@@ -23,7 +23,7 @@ const Text = ({
       style={containerStyle}
     >
       <TextRN
-        style={{ fontSize, color, fontWeight, ...fontStyle }}
+        style={{ fontSize, color, fontWeight, ...textStyle }}
         allowFontScaling={false}
       >
         {children}

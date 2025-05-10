@@ -8,7 +8,7 @@ const Button = ({
   type = 'solid', // solid || outline
   children,
   containerStyle = {},
-  fontStyle = {},
+  textStyle = {},
   // mini style (simple style)
   disabled = false,
   loading = false,
@@ -38,7 +38,7 @@ const Button = ({
       {loading ? 
         <ActivityIndicator size='small' color={type === 'outline' ? disabled ? '#A0A0A0' : btnColor : textColor} /> 
         : 
-        <Text fontWeight={fontWeight} fontSize={fontSize} fontStyle={{ color: type === 'outline' ? disabled ? '#A0A0A0' : btnColor : textColor, fontSize: fontSize, ...fontStyle }}>{children}</Text>
+        <Text fontWeight={fontWeight} fontSize={fontSize} textStyle={{ color: type === 'outline' ? disabled ? '#A0A0A0' : btnColor : textColor, fontSize: fontSize, ...textStyle }}>{children}</Text>
       }
     </TouchableOpacity>
   )
