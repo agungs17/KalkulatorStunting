@@ -1,6 +1,6 @@
 // file ini di gunakan untuk menampung function global
 
-import { isNumber, isString, isInteger, isEmpty } from 'lodash-es'
+import { isNumber, isString, isInteger, isEmpty, isNaN } from 'lodash-es'
 import { Dimensions, PixelRatio, Platform } from 'react-native'
 import { TYPE_CHILDS } from './constants'
 
@@ -73,9 +73,8 @@ export const getTypeChild = (age) => {
 }
 
 export const getRoundDownHeight = (num) => {
-  if(!isNumber(num)) return
-
   const parsed = parseFloat(num.replace(',', '.'));
+  if (isNaN(parsed)) return 0;
   const result = Math.floor(parsed * 2) / 2;
   return result
 }
