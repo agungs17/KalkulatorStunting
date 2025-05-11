@@ -73,6 +73,8 @@ export const getTypeChild = (age) => {
 }
 
 export const getRoundDownHeight = (num) => {
+  if(!isNumber(num)) return
+
   const parsed = parseFloat(num.replace(',', '.'));
   const result = Math.floor(parsed * 2) / 2;
   return result
