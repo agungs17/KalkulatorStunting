@@ -4,14 +4,16 @@ import Header from '../atomic/molecules/Header';
 import Button from '../atomic/atoms/Button';
 import { ScrollView } from 'react-native-gesture-handler';
 import TextInput from '../atomic/atoms/TextInput';
-import {isNumber, isEmpty} from 'lodash-es';
-import { AxiosInstance } from '../services/AxiosInstance';
-import { PARAM_SERVICES } from '../utils/constants';
-import { generateZScore, getRoundDownHeight, getTypeChild } from '../utils/script';
+import {isEmpty} from 'lodash-es';
+import { generateZScore } from '../utils/script';
 import InfoBox from '../atomic/atoms/InfoBox';
 import { infoColors } from '../utils/themes';
+import { getDataBerat } from '../services/collections/BeratCollections';
+import { getDataTinggi } from '../services/collections/TinggiCollections';
+import { getDataTinggiVsBerat } from '../services/collections/TinggiVsBeratCollections';
 
 const Homepage = () => {
+    const [loading, setLoading] = useState(false)
     const [form, setForm] = useState({
         name : '',
         gender : '',
@@ -37,21 +39,17 @@ const Homepage = () => {
     }
 
 
-    const handleSubmit = () => {
-        Promise.all([
-            AxiosInstance.get(`/${PARAM_SERVICES[0]}/${gender}/${age}.json`),
-            AxiosInstance.get(`/${PARAM_SERVICES[1]}/${gender}/${age}.json`),
-            AxiosInstance.get(`/${PARAM_SERVICES[2]}/${gender}/${getTypeChild(age)}/${getRoundDownHeight(height)}.json`),
-        ])
-        .then(([berat, tinggi, tinggivsberat]) => {
-            const zScoreBerat = generateZScore(weight, berat.data);
-            const zScoreTinggi = generateZScore(height, tinggi.data);
-            const zScoreTinggiVsBerat = generateZScore(weight, tinggivsberat.data);
-            setZScore({ berat: zScoreBerat, tinggi: zScoreTinggi, tinggivsberat: zScoreTinggiVsBerat })
-        })
-        .catch(error => {
-            console.error('Salah satu request gagal:', error);
-        });
+    const handleSubmit = async() => {
+        setLoading(true)
+        setZScore({})
+        let dataBerat = await getDataBerat(gender, age)
+        dataBerat = generateZScore(weight, dataBerat?.data?.[0]);
+        let dataTinggi = await getDataTinggi(gender, age)
+        dataTinggi = generateZScore(height, dataTinggi?.data?.[0]);
+        let dataTinggiVsBerat = await getDataTinggiVsBerat(gender, age, height)
+        dataTinggiVsBerat = generateZScore(weight, dataTinggiVsBerat?.data?.[0]);
+        setZScore({ berat: dataBerat, tinggi: dataTinggi, tinggivsberat: dataTinggiVsBerat })
+        setLoading(false)
     }
 
     return (
@@ -96,7 +94,7 @@ const Homepage = () => {
                     {!isEmpty(berat) && <InfoBox color={infoColors(berat?.category)} containerStyle={{ marginBottom : 8 }} title={`Z-Score Berat Badan :\n${berat?.zScore} (${berat?.category})`} />}
                     {!isEmpty(tinggi) && <InfoBox color={infoColors(tinggi?.category)} containerStyle={{ marginBottom : 8 }} title={`Z-Score Tinggi Badan :\n${tinggi?.zScore} (${tinggi?.category})`} />}
                     {!isEmpty(tinggivsberat) && <InfoBox color={infoColors(tinggivsberat?.category)} containerStyle={{ marginBottom : 8 }} title={`Z-Score Berat Badan Menurut Tinggi :\n${tinggivsberat?.zScore} (${tinggivsberat?.category})`} />}
-                    <Button disabled={!(!isEmpty(name) && !isEmpty(gender) && !isEmpty(age) && !isEmpty(weight) && !isEmpty(height))} onPress={handleSubmit}>
+                    <Button loading={loading} disabled={!(!isEmpty(name) && !isEmpty(gender) && !isEmpty(age) && !isEmpty(weight) && !isEmpty(height))} onPress={handleSubmit}>
                         Submit
                     </Button>
                 </Container>

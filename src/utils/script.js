@@ -1,6 +1,6 @@
 // file ini di gunakan untuk menampung function global
 
-import { isNumber, isString, isInteger } from 'lodash-es'
+import { isNumber, isString, isInteger, isEmpty } from 'lodash-es'
 import { Dimensions, PixelRatio, Platform } from 'react-native'
 import { TYPE_CHILDS } from './constants'
 
@@ -75,12 +75,14 @@ export const getTypeChild = (age) => {
 export const getRoundDownHeight = (num) => {
   const parsed = parseFloat(num.replace(',', '.'));
   const result = Math.floor(parsed * 2) / 2;
-  return result.toFixed(1).replace('.', ',');
+  return result
 }
 
 const isNegative = (value) => typeof value === 'number' && value < 0;
 
 export const generateZScore = (value, data) => {
+  if(isEmpty(data)) return {}
+  
   const median = data.m;
   const v1 = value - median
   const isNeg = isNegative(v1)

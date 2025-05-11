@@ -73,3 +73,7 @@ package-lock.json
 !.yarn/releases
 !.yarn/plugins
 !.yarn/patches
+
+# google-service
+android/app/google-services.json
+bulk/serviceAccountKey.json
