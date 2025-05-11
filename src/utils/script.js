@@ -69,7 +69,7 @@ export const WidthPercentageToDP = widthPercent => {
 
 export const getTypeChild = (age) => {
   if(age >= 0 && age <= 24) return TYPE_CHILDS[0]
-  if(age > 24 && age <= 60) return TYPE_CHILDS[1]
+  else return TYPE_CHILDS[1]
 }
 
 export const getRoundDownHeight = (num) => {
