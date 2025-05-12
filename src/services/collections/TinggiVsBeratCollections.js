@@ -13,6 +13,6 @@ export const getDataTinggiVsBerat = async (gender, ageGroup, height) => {
     return formatResponse({
       identifer : 'getDataTinggiVsBerat',
       res,
-      isAlertEmpty : true
+      isToastEmpty : true
     })
 };

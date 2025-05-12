@@ -11,6 +11,6 @@ export const getDataTinggi = async (gender, age) => {
     return formatResponse({
       identifer : 'getDataTinggi',
       res,
-      isAlertEmpty : true
+      isToastEmpty : true
     })
 };

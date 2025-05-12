@@ -1,11 +1,11 @@
-import { Alert } from "react-native";
+import { showToastable } from "react-native-toastable";
 
 export const formatResponse = ({
   identifer,
   res,
-  isAlertError = false,
-  isAlertEmpty = false,
-  isAlertSuccess = false,
+  isToastError = false,
+  isToastEmpty = false,
+  isToastSuccess = false,
 }) => {
   let message;
   let status;
@@ -14,15 +14,11 @@ export const formatResponse = ({
   if (!res) {
     status = 500; // Internal Server Error
     message = `${identifer} Terjadi kesalahan saat mengambil data.`;
-    if (isAlertError) {
-      Alert.alert(String(status), message);
-    }
+    isToastError && showToastable({ message : `❌ ${message}`, status: 'danger' })
   } else if (res.empty) {
     status = 404; // Not Found
     message = `${identifer} Data tidak ditemukan.`;
-    if (isAlertEmpty) {
-      Alert.alert(String(status), message);
-    }
+    isToastEmpty && showToastable({ message : `🥺 ${message}`, status: 'warning' })
   } else {
     status = 200; // Sukses
     message = `${identifer} Data berhasil.`;
@@ -30,9 +26,7 @@ export const formatResponse = ({
       id: doc.id,
       ...doc.data(),
     }));
-    if (isAlertSuccess) {
-      Alert.alert(String(status), message);
-    }
+    isToastSuccess && showToastable({ message : `🔥 ${message}`, status: 'success' })
   }
 
   return {

@@ -27,11 +27,12 @@ const TextInput = ({
   }, [secureTextEntry])
 
   return (
-    <Container style={{ paddingBottom: 10 }}>
+    <Container noFlex style={{ paddingBottom: 10 }}>
       <Text color={color} containerStyle={{ paddingBottom: 3 }}>
         {title}
       </Text>
       <Container
+        noFlex
         style={{
           flexDirection: "row",
           alignItems: "center",

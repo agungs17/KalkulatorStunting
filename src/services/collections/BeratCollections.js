@@ -11,6 +11,6 @@ export const getDataBerat = async (gender, age) => {
     return formatResponse({
       identifer : 'getDataBerat',
       res,
-      isAlertEmpty : true
+      isToastEmpty : true
     })
 };
