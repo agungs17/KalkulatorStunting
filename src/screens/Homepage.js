@@ -5,7 +5,7 @@ import Button from '../atomic/atoms/Button';
 import { ScrollView } from 'react-native-gesture-handler';
 import TextInput from '../atomic/atoms/TextInput';
 import {isEmpty} from 'lodash-es';
-import { generateZScore } from '../utils/script';
+import { generateZScore, updateStateField } from '../utils/script';
 import InfoBox from '../atomic/atoms/InfoBox';
 import { infoColors } from '../utils/themes';
 import { getDataBerat } from '../services/collections/BeratCollections';
@@ -31,14 +31,6 @@ const Homepage = () => {
     const {berat, tinggi, tinggivsberat} = zScore
     const {name, gender, age, weight, height} = form
 
-    const handleChange = (name, value) => {
-        setForm({
-            ...form,
-            [name]: value
-        })
-    }
-
-
     const handleSubmit = async() => {
         setLoading(true)
         setZScore({})
@@ -61,35 +53,35 @@ const Homepage = () => {
                       title='Nama Lengkap*'
                       placeholder='Masukan Nama Lengkap'
                       value={name}
-                      onChangeText={(value) => handleChange('name', value)}
+                      onChangeText={(value) => updateStateField(setForm, 'name', value)}
                     />
                     <TextInput
                       maxLength={1}
                       title='Jenis Kelamin*'
                       placeholder='Masukan Jenis Kelamin'
                       value={gender}
-                      onChangeText={(value) => handleChange('gender', value)}
+                      onChangeText={(value) => updateStateField(setForm, 'gender', value)}
                     />
                     <TextInput
                       title='Usia (Bulan)*'
                       placeholder='Masukan Usia (Bulan)'
                       value={age}
                       keyboardType='numeric'
-                      onChangeText={(value) => handleChange('age', value)}
+                      onChangeText={(value) => updateStateField(setForm, 'age', value)}
                     />
                     <TextInput
                       title='Berat Badan*'
                       placeholder='Masukan Berat Badan'
                       value={weight}
                       keyboardType='numeric'
-                      onChangeText={(value) => handleChange('weight', value)}
+                      onChangeText={(value) => updateStateField(setForm, 'weight', value)}
                     />
                     <TextInput
                       title='Tinggi Badan*'
                       placeholder='Masukan Tinggi Badan'
                       value={height}
                       keyboardType='numeric'
-                      onChangeText={(value) => handleChange('height', value)}
+                      onChangeText={(value) => updateStateField(setForm, 'height', value)}
                     />
                     {!isEmpty(berat) && <InfoBox color={infoColors(berat?.category)} containerStyle={{ marginBottom : 8 }} title={`Z-Score Berat Badan :\n${berat?.zScore} (${berat?.category})`} />}
                     {!isEmpty(tinggi) && <InfoBox color={infoColors(tinggi?.category)} containerStyle={{ marginBottom : 8 }} title={`Z-Score Tinggi Badan :\n${tinggi?.zScore} (${tinggi?.category})`} />}
