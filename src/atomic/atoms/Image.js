@@ -34,7 +34,8 @@ const Image = ({
                 source={source}
                 resizeMode={resizeMode}
                 style={{
-                    flex: 1,
+                    width,
+                    height,
                     borderRadius,
                     ...imageStyle,
                 }}

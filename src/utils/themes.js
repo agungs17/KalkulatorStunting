@@ -31,19 +31,30 @@ export const GLOBAL_STYLES = {
   },
 };
 
-export const infoColors = (status) => {
-  switch (status) {
-    case "Sangat Kurang":
+export const infoColors = (category) => {
+  switch (category) {
+    case "Berat badan sangat kurang":
+    case "Sangat pendek":
+    case "Sangat kurus":
       return COLORS.RED;
-    case "Kurang":
+
+    case "Berat badan kurang":
+    case "Pendek":
+    case "Kurus":
       return COLORS.ORANGE;
+
+    case "Berat badan normal":
+    case "Tinggi normal":
     case "Normal":
       return COLORS.BLUE;
-    case "Lebih":
+
+    case "Berat badan lebih":
+    case "Tinggi":
+    case "Gemuk":
+    case "Berisiko gemuk":
       return COLORS.GREEN;
-    case "Sangat Lebih":
-      return COLORS.GREEN;
+
     default:
       return COLORS.GREEN;
   }
-};
+}

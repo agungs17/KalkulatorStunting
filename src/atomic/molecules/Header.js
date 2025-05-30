@@ -10,6 +10,7 @@ import { useNavigation } from "@react-navigation/native";
 const Header = ({ 
   title = "Title Header",
   style,
+  noShadow = false,
   useBack = false,
   leftComponent,
   centerComponent,
@@ -23,6 +24,8 @@ const Header = ({
     }
   }
 
+  let shadowProps = noShadow ? {} : GLOBAL_STYLES.SHADOW
+
   return (
     <Container
       noFlex
@@ -33,7 +36,7 @@ const Header = ({
         flexDirection: "row",
         alignItems: "center",
         paddingVertical: moderateScale(18),
-        ...GLOBAL_STYLES.SHADOW,
+        ...shadowProps,
         ...style
       }}
     >
@@ -42,7 +45,7 @@ const Header = ({
             isFunction(leftComponent) ? leftComponent() : leftComponent
           ) 
           : 
-          useBack && <Icon name="arrow-left" onPress={handleBackPress}/>
+          useBack && <Icon name="arrow-left" size={30} onPress={handleBackPress}/>
       }
       <Container style={{ paddingLeft: leftComponent || useBack ? moderateScale(10) : 0, paddingRight: rightComponent ? 0 : moderateScale(10) }}>
         {

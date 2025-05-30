@@ -15,9 +15,9 @@ const Button = ({
   btnColor = COLORS.GREEN,
   paddingVertical = 10,
   textColor = COLORS.WHITE,
-  borderRadius = 5,
+  borderRadius = 10,
   borderWidth = 1,
-  fontSize = 14,
+  fontSize = 18,
   fontWeight = 'bold',
   onPress = null,
 }) => {
@@ -34,11 +34,11 @@ const Button = ({
   borderRadius = moderateScale(borderRadius)
 
   return (
-    <TouchableOpacity disabled={disabled} style={[{ backgroundColor: type === 'outline' ? disabled ? '#F8F8F8' : 'transparent' : btnColor, borderWidth: type === 'outline' ? borderWidth : 0, borderColor: type === 'outline' ? btnColor : 'transparent', borderRadius: borderRadius, alignItems: 'center', paddingVertical: paddingVertical, ...containerStyle }]} onPress={onPress}>
+    <TouchableOpacity disabled={disabled} style={[{ alignSelf : 'center', backgroundColor: type === 'outline' ? disabled ? '#F8F8F8' : 'transparent' : btnColor, borderWidth: type === 'outline' ? borderWidth : 0, borderColor: type === 'outline' ? btnColor : 'transparent', borderRadius: borderRadius, alignItems: 'center', paddingVertical: paddingVertical, ...containerStyle }]} onPress={onPress}>
       {loading ? 
         <ActivityIndicator size='small' color={type === 'outline' ? disabled ? '#A0A0A0' : btnColor : textColor} /> 
         : 
-        <Text fontWeight={fontWeight} fontSize={fontSize} textStyle={{ color: type === 'outline' ? disabled ? '#A0A0A0' : btnColor : textColor, fontSize: fontSize, ...textStyle }}>{children}</Text>
+        <Text fontWeight={fontWeight} fontSize={fontSize} textStyle={{ color: type === 'outline' ? disabled ? '#A0A0A0' : btnColor : textColor, fontSize: fontSize, ...textStyle, paddingVertical : 6 }}>{children}</Text>
       }
     </TouchableOpacity>
   )

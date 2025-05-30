@@ -17,6 +17,7 @@ const TextInput = ({
     maxLength = null,
     leftComponent = null,
     rightComponent = null,
+    containerStyle = {},
     errorMsg
  }) => {
   const [lock, setLock] = useState(secureTextEntry);
@@ -27,7 +28,7 @@ const TextInput = ({
   }, [secureTextEntry])
 
   return (
-    <Container noFlex style={{ paddingBottom: 10 }}>
+    <Container noFlex style={{ paddingBottom: 12, ...containerStyle }}>
       <Text color={color} containerStyle={{ paddingBottom: 3 }}>
         {title}
       </Text>
@@ -36,12 +37,12 @@ const TextInput = ({
         style={{
           flexDirection: "row",
           alignItems: "center",
-          borderWidth: 1,
+          paddingVertical:10,
           borderColor: color,
-          borderRadius: 5,
-          backgroundColor: "transparent",
-          paddingLeft: leftComponent ? moderateScale(8) : moderateScale(4),
-          paddingRight: rightComponent || secureTextEntry ? moderateScale(8) : moderateScale(4),
+          borderRadius: 10,
+          backgroundColor: COLORS.SECONDARY_GREEN,
+          paddingLeft: leftComponent ? moderateScale(14) : moderateScale(10),
+          paddingRight: rightComponent || secureTextEntry ? moderateScale(14) : moderateScale(10),
         }}
       >
         {leftComponent && isFunction(leftComponent) ? leftComponent() : leftComponent}
@@ -53,10 +54,12 @@ const TextInput = ({
           autoCorrect={false}
           keyboardType={keyboardType}
           placeholder={placeholder}
+          placeholderTextColor="#888"
           secureTextEntry={lock}
           style={{
             flex : 1,
             height: 40,
+            color: '#000',
           }}
         />
         {secureTextEntry ? lock ? <Icon name="eye" size={20} color={COLORS.BLACK} onPress={() => setLock(false)} /> : <Icon name="eye-off" size={20} color={COLORS.BLACK} onPress={() => setLock(true)} /> : rightComponent && isFunction(rightComponent) ? rightComponent() : rightComponent}
