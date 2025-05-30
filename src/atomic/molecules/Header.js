@@ -29,6 +29,7 @@ const Header = ({
       noEarlyReturn
       usePaddingHorizontal
       style={{
+        zIndex : 99,
         flexDirection: "row",
         alignItems: "center",
         paddingVertical: moderateScale(18),

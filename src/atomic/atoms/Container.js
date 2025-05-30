@@ -8,6 +8,7 @@ import { COLORS } from "../../utils/themes";
 const Container = ({
   children,
   style,
+  center = false,
   noFlex = false,
   useSafeArea = false,
   usePaddingHorizontal = false,
@@ -19,7 +20,7 @@ const Container = ({
     if (useEarlyReturn && !show) {
       delay(() => {
         setShow(true);
-      }, 800);
+      }, 0);
     }
   }, [useEarlyReturn]);
 
@@ -30,6 +31,7 @@ const Container = ({
     <Wrapper
       style={{
         flex: noFlex ? 0 : 1,
+        justifyContent : center ? 'center' : 'flex-start',
         paddingHorizontal: usePaddingHorizontal ? horizontalScale(15) : 0,
         backgroundColor: COLORS.WHITE,
         ...style,
