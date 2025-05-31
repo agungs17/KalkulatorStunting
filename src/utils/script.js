@@ -84,35 +84,41 @@ export const getRoundDownHeight = (num) => {
 
 const isNegative = (value) => typeof value === "number" && value < 0;
 
-export const generateZScore = (value, data) => {
-  if (isEmpty(data)) return {};
-
+export const generateZScore = (value, data, type = 'BBU') => {
   const median = data.m;
-  const v1 = value - median;
-  const isNeg = isNegative(v1);
-
+  const v1 = value - median
+  const isNeg = isNegative(v1)
   const v2 = isNeg ? median - data.min1SD : data.plus1SD - median;
   const zScore = v1 / v2;
   return {
     zScore,
-    category: categorizeZScore(zScore),
-  };
-};
-
-const categorizeZScore = (z) => {
-  if (z < -2) {
-    return "Sangat Kurang";
-  } else if (z >= -2 && z < -1) {
-    return "Kurang";
-  } else if (z >= -1 && z < 1) {
-    return "Normal";
-  } else if (z >= 1 && z < 2) {
-    return "Lebih";
-  } else {
-    return "Sangat Lebih";
+    category : categorizeZScore(zScore, type), // sesuaikan ke sini
   }
-};
+}
 
-export const updateStateField = (setState, name, value) => {
-  setState(prevState => ({...prevState, [name]: value,}));
-};
+
+function categorizeZScore(z, type) {
+  switch (type) {
+    case 'BBU': // Berat Badan Umur
+      if (z < -3) return 'Berat badan sangat kurang (Gizi Buruk)';
+      if (z >= -3 && z < -2) return 'Berat badan kurang (Gizi Kurang)';
+      if (z >= -2 && z <= 2) return 'Berat badan normal (Gizi Normal)';
+      return 'Berat badan lebih (Gizi Lebih)';
+
+    case 'TBU': // Tinggi Badan Umur
+      if (z < -3) return 'Sangat pendek';
+      if (z >= -3 && z < -2) return 'Pendek';
+      if (z >= -2 && z <= 2) return 'Tinggi normal';
+      return 'Tinggi';
+
+    case 'BBTB': // Berat Badan Tinggi Badan
+      if (z < -3) return 'Sangat kurus';
+      if (z >= -3 && z < -2) return 'Kurus';
+      if (z >= -2 && z <= 1) return 'Normal';
+      if (z > 1 && z <= 2) return 'Berisiko gemuk';
+      return 'Gemuk';
+
+    default:
+      return 'Tidak diketahui';
+  }
+}
