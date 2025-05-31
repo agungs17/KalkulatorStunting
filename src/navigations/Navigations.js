@@ -9,6 +9,10 @@ import Register from "../screens/Register";
 import OnBoardingAuth from "../screens/OnBoardingAuth";
 import Login from "../screens/Login";
 import ForgotPassword from "../screens/ForgotPassword";
+import Homepage from "../screens/Homepage";
+import Profile from "../screens/Profile";
+import ScanBarcode from "../screens/ScanBarcode";
+import RiwayatBalita from "../screens/RiwayatBalita";
 
 const Stack = createStackNavigator()
 
@@ -18,6 +22,10 @@ const NavigationRoot = () => {
         <Stack.Screen name="OnBoardingAuth" component={OnBoardingAuth} />
         <Stack.Screen name="Login" component={Login} />
          <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+         <Stack.Screen name="Profile" component={Profile} />
+          <Stack.Screen name="RiwayatBalita" component={RiwayatBalita} />
+         <Stack.Screen name="Homepage" component={Homepage}/>
+        <Stack.Screen name="ScanBarcode" component={ScanBarcode}/>
         <Stack.Screen name="Register" component={Register} />
       </Stack.Navigator>
   )

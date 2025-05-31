@@ -7,11 +7,17 @@ import { COLORS } from "../utils/themes";
 import TextInput from "../atomic/atoms/TextInput";
 import Button from "../atomic/atoms/Button";
 
+
 const Login = ({navigation}) => {
+
+const handleLogin = () =>{
+  navigation.navigate("Homepage");
+}
 
 const handleRegister = () => {
     navigation.navigate("Register")
 }
+
 const handleForgotPasword =()=>{
     navigation.navigate("ForgotPassword")
 }
@@ -43,7 +49,7 @@ const handleForgotPasword =()=>{
           <Text containerStyle={{ alignItems: "flex-end" }} onPress={handleForgotPasword}>
             Lupa password?
           </Text>
-          <Button containerStyle={{ width: "100%", marginTop: 15 }}>
+          <Button containerStyle={{ width: "100%", marginTop: 15 }} onPress={handleLogin}>
             Masuk
           </Button>
           <Text
