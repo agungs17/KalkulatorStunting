@@ -13,7 +13,7 @@ const Button = ({
   disabled = false,
   loading = false,
   btnColor = COLORS.GREEN,
-  paddingVertical = 10,
+  paddingVertical = 7,
   textColor = COLORS.WHITE,
   borderRadius = 10,
   borderWidth = 1,
@@ -36,7 +36,7 @@ const Button = ({
   return (
     <TouchableOpacity disabled={disabled} style={[{ alignSelf : 'center', backgroundColor: type === 'outline' ? disabled ? '#F8F8F8' : 'transparent' : btnColor, borderWidth: type === 'outline' ? borderWidth : 0, borderColor: type === 'outline' ? btnColor : 'transparent', borderRadius: borderRadius, alignItems: 'center', paddingVertical: paddingVertical, ...containerStyle }]} onPress={onPress}>
       {loading ? 
-        <ActivityIndicator size='small' color={type === 'outline' ? disabled ? '#A0A0A0' : btnColor : textColor} /> 
+        <ActivityIndicator size='small' color={type === 'outline' ? disabled ? '#A0A0A0' : btnColor : textColor} style={{paddingVertical : 8}} /> 
         : 
         <Text fontWeight={fontWeight} fontSize={fontSize} textStyle={{ color: type === 'outline' ? disabled ? '#A0A0A0' : btnColor : textColor, fontSize: fontSize, ...textStyle, paddingVertical : 6 }}>{children}</Text>
       }

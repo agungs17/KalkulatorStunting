@@ -74,6 +74,5 @@ package-lock.json
 !.yarn/plugins
 !.yarn/patches
 
-# google-service
-android/app/google-services.json
-bulk/serviceAccountKey.json
+# env
+.env

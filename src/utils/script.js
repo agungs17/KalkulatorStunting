@@ -1,8 +1,7 @@
 // file ini di gunakan untuk menampung function global
 
-import { isNumber, isString, isInteger, isEmpty, isNaN } from "lodash-es";
+import { isNumber, isString, isInteger } from "lodash-es";
 import { Dimensions, PixelRatio, Platform } from "react-native";
-import { TYPE_CHILDS } from "./constants";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
@@ -70,55 +69,183 @@ export const WidthPercentageToDP = (widthPercent) => {
   return 0;
 };
 
-export const getTypeChild = (age) => {
-  if (age >= 0 && age <= 24) return TYPE_CHILDS[0];
-  else return TYPE_CHILDS[1];
+export const removeTrailingSlash = (url) => url.replace(/\/+$/, '');
+
+export const updateStateField = (setState, field, value) => {
+  setState(prev => ({
+    ...prev,
+    [field]: value,
+    [`${field}_error`]: '',
+  }));
 };
 
-export const getRoundDownHeight = (num) => {
-  const parsed = parseFloat(num.replace(",", "."));
-  if (isNaN(parsed)) return 0;
-  const result = Math.floor(parsed * 2) / 2;
+export const resetStateErrors = (setState) => {
+  setState(prev => {
+    const updated = { ...prev };
+
+    Object.keys(updated).forEach((key) => {
+      if (key.endsWith('_error')) {
+        updated[key] = '';
+      }
+    });
+
+    return updated;
+  });
+};
+
+
+export const findArray = (data, filters = {}, callback) => {
+  if (!Array.isArray(data)) return [];
+
+  const result = data.filter((item) =>
+    Object.entries(filters).every(([key, value]) => item?.[key] === value)
+  );
+
+  if (typeof callback === "function") return callback(result);
+
   return result;
 };
 
-const isNegative = (value) => typeof value === "number" && value < 0;
+export const generateTickArray = (maxValue, length = 6) => {
+  if (!maxValue || length <= 1) return [];
 
-export const generateZScore = (value, data, type = 'BBU') => {
-  const median = data.m;
-  const v1 = value - median
-  const isNeg = isNegative(v1)
-  const v2 = isNeg ? median - data.min1SD : data.plus1SD - median;
-  const zScore = v1 / v2;
-  return {
-    zScore,
-    category : categorizeZScore(zScore, type), // sesuaikan ke sini
+  const roundedMax = Math.ceil(maxValue);
+  const step = Math.ceil(roundedMax / (length - 1));
+
+  return Array.from({ length }, (_, i) => i * step);
+};
+
+export const configLineChart = (data, type) => {
+  if (!Array.isArray(data) || data.length === 0) {
+    return {
+      type,
+      sd: [],
+      chartKey : {
+        // for chart key refrence from .json
+        x : "",
+        y : ""
+      },
+      dataKey : {
+        // for data key refrence from api
+        x : "",
+        y : "",
+        zScore : ""
+      },
+      domain: { x: [0, 0], y: [0, 0] },
+      xLine: { title: "", data: [] },
+      yLine: { title: "", data: [] },
+    };
   }
-}
 
+  let xLineData;
+  let yLineData;
 
-function categorizeZScore(z, type) {
   switch (type) {
-    case 'BBU': // Berat Badan Umur
-      if (z < -3) return 'Berat badan sangat kurang (Gizi Buruk)';
-      if (z >= -3 && z < -2) return 'Berat badan kurang (Gizi Kurang)';
-      if (z >= -2 && z <= 2) return 'Berat badan normal (Gizi Normal)';
-      return 'Berat badan lebih (Gizi Lebih)';
+    case "berat":
+      xLineData = generateTickArray( Math.max(...data.map((d) => d.usia_bulan)), 4);
+      yLineData = generateTickArray(Math.max(...data.map((d) => d.plus3sd)), 6);
 
-    case 'TBU': // Tinggi Badan Umur
-      if (z < -3) return 'Sangat pendek';
-      if (z >= -3 && z < -2) return 'Pendek';
-      if (z >= -2 && z <= 2) return 'Tinggi normal';
-      return 'Tinggi';
+      return {
+        type,
+        sd: data,
+        chartKey : {
+          x : "usia_bulan"
+        },
+        dataKey : {
+          x : "age_in_months",
+          y : "weight",
+          zScore : "z_score_weight"
+        },
+        domain: {
+          x: [0, Math.max(...xLineData)],
+          y: [0, Math.max(...yLineData)],
+        },
+        xLine: {
+          title: "Usia (bulan)",
+          data: xLineData.filter(num => num !== 0),
+        },
+        yLine: {
+          title: "Berat Badan (kg)",
+          data: yLineData,
+        },
+      };
 
-    case 'BBTB': // Berat Badan Tinggi Badan
-      if (z < -3) return 'Sangat kurus';
-      if (z >= -3 && z < -2) return 'Kurus';
-      if (z >= -2 && z <= 1) return 'Normal';
-      if (z > 1 && z <= 2) return 'Berisiko gemuk';
-      return 'Gemuk';
+    case "tinggi":
+      xLineData = generateTickArray( Math.max(...data.map((d) => d.usia_bulan)), 4);
+      yLineData = generateTickArray(Math.max(...data.map((d) => d.plus3sd)), 6);
+
+      return {
+        type,
+        sd: data,
+        chartKey : {
+          x : "usia_bulan"
+        },
+        dataKey : {
+          x : "age_in_months",
+          y : "height",
+          zScore : "z_score_height"
+        },
+        domain: {
+          x: [0, Math.max(...xLineData)],
+          y: [0, Math.max(...yLineData)],
+        },
+        xLine: {
+          title: "Usia (bulan)",
+          data: xLineData.filter(num => num !== 0),
+        },
+        yLine: {
+          title: "Tinggi Badan (cm)",
+          data: yLineData,
+        },
+      };
+
+    case "tinggivsberat":
+      const xKey = "tinggi"
+      yLineData = generateTickArray(Math.max(...data.map((d) => d.plus3sd)), 5);
+      const xValues = data.map((d) => d[xKey]);
+      const xMin = Math.floor(Math.min(...xValues));
+      const xMax = Math.ceil(Math.max(...xValues));
+
+      return {
+        type,
+        sd: data,
+        chartKey : {
+          x : xKey
+        },
+        dataKey : {
+          x : "height",
+          y : "weight",
+          zScore : "z_score_heightvsweight"
+        },
+        domain: { 
+          x: [xMin, xMax],
+          y: [0, Math.max(...yLineData)] 
+        },
+        xLine: {
+          title: "Tinggi Badan (cm)",
+          data: generateTickArray(Math.max(...data.map((d) => d.tinggi)), 5),
+        },
+        yLine: {
+          title: "Berat Badan (kg)",
+          data: generateTickArray(Math.max(...data.map((d) => d.plus3sd)), 5),
+        },
+      };
 
     default:
-      return 'Tidak diketahui';
+      return {
+        type,
+        sd: [],
+        chartKey : {
+          x : "",
+          y : ""
+        },
+        dataKey : {
+          x : "",
+          y : ""
+        },
+        domain: { x: [0, 0], y: [0, 0] },
+        xLine: { title: "", data: [] },
+        yLine: { title: "", data: [] },
+      };
   }
-}
+};

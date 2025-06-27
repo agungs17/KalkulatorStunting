@@ -6,6 +6,7 @@ import { COLORS } from "../../utils/themes";
 import { isFunction } from "lodash-es";
 import { moderateScale } from "../../utils/script";
 import Icon from "@react-native-vector-icons/material-design-icons";
+import {isEmpty} from 'lodash-es'
 
 const TextInput = ({ 
     title = "Your title",
@@ -18,10 +19,12 @@ const TextInput = ({
     leftComponent = null,
     rightComponent = null,
     containerStyle = {},
-    errorMsg
+    error
  }) => {
   const [lock, setLock] = useState(secureTextEntry);
-  const color = errorMsg ? COLORS.RED : COLORS.BLACK;
+  const isError = !isEmpty(error) || false
+  const bgColor = isError ? COLORS.SECONDARY_RED : COLORS.SECONDARY_GREEN
+  const color = isError ? COLORS.RED : COLORS.BLACK;
 
   useEffect(() => {
     if (!secureTextEntry) setLock(false);
@@ -40,7 +43,7 @@ const TextInput = ({
           paddingVertical:10,
           borderColor: color,
           borderRadius: 10,
-          backgroundColor: COLORS.SECONDARY_GREEN,
+          backgroundColor: bgColor,
           paddingLeft: leftComponent ? moderateScale(14) : moderateScale(10),
           paddingRight: rightComponent || secureTextEntry ? moderateScale(14) : moderateScale(10),
         }}
@@ -58,20 +61,20 @@ const TextInput = ({
           secureTextEntry={lock}
           style={{
             flex : 1,
-            height: 40,
+            height: 37,
             color: '#000',
           }}
         />
         {secureTextEntry ? lock ? <Icon name="eye" size={20} color={COLORS.BLACK} onPress={() => setLock(false)} /> : <Icon name="eye-off" size={20} color={COLORS.BLACK} onPress={() => setLock(true)} /> : rightComponent && isFunction(rightComponent) ? rightComponent() : rightComponent}
       </Container>
-      {errorMsg && (
+      {error && (
         <Text
           fontSize={13.5}
           fontWeight="400"
           color={COLORS.RED}
           containerStyle={{ paddingTop: 2 }}
         >
-          {errorMsg}
+          {error}
         </Text>
       )}
     </Container>

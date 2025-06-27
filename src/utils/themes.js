@@ -30,31 +30,3 @@ export const GLOBAL_STYLES = {
     elevation: 4,
   },
 };
-
-export const infoColors = (category) => {
-  switch (category) {
-    case "Berat badan sangat kurang":
-    case "Sangat pendek":
-    case "Sangat kurus":
-      return COLORS.RED;
-
-    case "Berat badan kurang":
-    case "Pendek":
-    case "Kurus":
-      return COLORS.ORANGE;
-
-    case "Berat badan normal":
-    case "Tinggi normal":
-    case "Normal":
-      return COLORS.BLUE;
-
-    case "Berat badan lebih":
-    case "Tinggi":
-    case "Gemuk":
-    case "Berisiko gemuk":
-      return COLORS.GREEN;
-
-    default:
-      return COLORS.GREEN;
-  }
-}

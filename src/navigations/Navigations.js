@@ -13,12 +13,13 @@ import Homepage from "../screens/Homepage";
 import Profile from "../screens/Profile";
 import ScanBarcode from "../screens/ScanBarcode";
 import RiwayatBalita from "../screens/RiwayatBalita";
+import FinalRegister from "../screens/FinalRegister";
 
 const Stack = createStackNavigator()
 
 const NavigationRoot = () => {
   return (
-    <Stack.Navigator initialRouteName="OnBoardingAuth" screenOptions={{ headerShown: false }} >
+    <Stack.Navigator initialRouteName="LineChart" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="OnBoardingAuth" component={OnBoardingAuth} />
         <Stack.Screen name="Login" component={Login} />
          <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
@@ -27,6 +28,7 @@ const NavigationRoot = () => {
          <Stack.Screen name="Homepage" component={Homepage}/>
         <Stack.Screen name="ScanBarcode" component={ScanBarcode}/>
         <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="FinalRegister" component={FinalRegister} />
       </Stack.Navigator>
   )
 }
@@ -36,7 +38,7 @@ const Navigations = () => {
   return (
     <NavigationContainer>
       <NavigationRoot/>
-      <Toastable statusMap={{ success: COLORS.GREEN, danger: COLORS.RED, warning: COLORS.ORANGE, info: COLORS.BLUE }} offset={top + moderateScale(25)} position={'bottom'} />
+      <Toastable statusMap={{ success: COLORS.GREEN, danger: COLORS.RED, warning: COLORS.ORANGE, info: COLORS.BLUE }} offset={top + moderateScale(25)} position={'bottom'} animationInTiming={0} animationOutTiming={0} duration={3500} />
     </NavigationContainer>
 );
 }
