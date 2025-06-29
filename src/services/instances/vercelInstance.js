@@ -11,18 +11,22 @@ const vercelInstance = axios.create({
 });
 
 vercelInstance.interceptors.request.use(
-  async config => {
+  async (config) => {
     const token = await AsyncStorage.getItem('access_token');
     const deviceHeaders = await getDeviceHeaders();
+
+    config.headers = {
+      ...(config.headers || {}),
+      ...deviceHeaders,
+    };
+
     if (token) {
-      config.headers = {
-        Authorization : `Bearer ${token}`,
-        ...deviceHeaders
-      }
+      config.headers.Authorization = `Bearer ${token}`;
     }
+
     return config;
   },
-  error => Promise.reject(error)
+  (error) => Promise.reject(error)
 );
 
 // Handle token status
