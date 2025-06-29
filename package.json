@@ -17,6 +17,7 @@
     "@react-navigation/native": "^6.0.11",
     "@react-navigation/stack": "^6.2.2",
     "axios": "^1.9.0",
+    "dayjs": "^1.11.13",
     "lodash-es": "^4.17.21",
     "react": "18.2.0",
     "react-native": "0.72.15",

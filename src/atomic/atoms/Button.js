@@ -2,7 +2,7 @@ import React from 'react'
 import { TouchableOpacity, ActivityIndicator } from 'react-native'
 import Text from './Text'
 import { COLORS } from '../../utils/themes'
-import { moderateScale } from '../../utils/script'
+import { horizontalScale, moderateScale } from '../../utils/script'
 
 const Button = ({
   type = 'solid', // solid || outline
@@ -14,6 +14,7 @@ const Button = ({
   loading = false,
   btnColor = COLORS.GREEN,
   paddingVertical = 7,
+  paddingHorizontal = 10,
   textColor = COLORS.WHITE,
   borderRadius = 10,
   borderWidth = 1,
@@ -31,10 +32,11 @@ const Button = ({
   }
 
   paddingVertical = moderateScale(paddingVertical)
+  paddingHorizontal = horizontalScale(paddingHorizontal)
   borderRadius = moderateScale(borderRadius)
 
   return (
-    <TouchableOpacity disabled={disabled} style={[{ alignSelf : 'center', backgroundColor: type === 'outline' ? disabled ? '#F8F8F8' : 'transparent' : btnColor, borderWidth: type === 'outline' ? borderWidth : 0, borderColor: type === 'outline' ? btnColor : 'transparent', borderRadius: borderRadius, alignItems: 'center', paddingVertical: paddingVertical, ...containerStyle }]} onPress={onPress}>
+    <TouchableOpacity disabled={disabled} style={[{ alignSelf : 'center', backgroundColor: type === 'outline' ? disabled ? '#F8F8F8' : 'transparent' : btnColor, borderWidth: type === 'outline' ? borderWidth : 0, borderColor: type === 'outline' ? btnColor : 'transparent', borderRadius: borderRadius, alignItems: 'center', paddingVertical: paddingVertical, paddingHorizontal : paddingHorizontal, ...containerStyle }]} onPress={onPress}>
       {loading ? 
         <ActivityIndicator size='small' color={type === 'outline' ? disabled ? '#A0A0A0' : btnColor : textColor} style={{paddingVertical : 8}} /> 
         : 

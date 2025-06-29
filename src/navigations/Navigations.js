@@ -22,10 +22,10 @@ const NavigationRoot = () => {
     <Stack.Navigator initialRouteName="LineChart" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="OnBoardingAuth" component={OnBoardingAuth} />
         <Stack.Screen name="Login" component={Login} />
-         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-         <Stack.Screen name="Profile" component={Profile} />
-          <Stack.Screen name="RiwayatBalita" component={RiwayatBalita} />
-         <Stack.Screen name="Homepage" component={Homepage}/>
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="RiwayatBalita" component={RiwayatBalita} />
+        <Stack.Screen name="Homepage" component={Homepage}/>
         <Stack.Screen name="ScanBarcode" component={ScanBarcode}/>
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="FinalRegister" component={FinalRegister} />
@@ -38,7 +38,7 @@ const Navigations = () => {
   return (
     <NavigationContainer>
       <NavigationRoot/>
-      <Toastable statusMap={{ success: COLORS.GREEN, danger: COLORS.RED, warning: COLORS.ORANGE, info: COLORS.BLUE }} offset={top + moderateScale(25)} position={'bottom'} animationInTiming={0} animationOutTiming={0} duration={3500} />
+      <Toastable statusMap={{ success: COLORS.GREEN, danger: COLORS.RED, warning: COLORS.ORANGE, info: COLORS.BLUE }} offset={top + moderateScale(25)} position={'top'} animationInTiming={0} animationOutTiming={0} duration={3500} />
     </NavigationContainer>
 );
 }

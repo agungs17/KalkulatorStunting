@@ -19,10 +19,11 @@ const TextInput = ({
     leftComponent = null,
     rightComponent = null,
     containerStyle = {},
+    isError = false,
     error
  }) => {
   const [lock, setLock] = useState(secureTextEntry);
-  const isError = !isEmpty(error) || false
+  isError = isError || !isEmpty(error) || false
   const bgColor = isError ? COLORS.SECONDARY_RED : COLORS.SECONDARY_GREEN
   const color = isError ? COLORS.RED : COLORS.BLACK;
 

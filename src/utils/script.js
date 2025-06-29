@@ -71,28 +71,44 @@ export const WidthPercentageToDP = (widthPercent) => {
 
 export const removeTrailingSlash = (url) => url.replace(/\/+$/, '');
 
-export const updateStateField = (setState, field, value) => {
-  setState(prev => ({
-    ...prev,
-    [field]: value,
-    [`${field}_error`]: '',
-  }));
+export const updateStateField = (setState, field, value, index = null) => {
+  if (index === null) {
+    setState(prev => ({
+      ...prev,
+      [field]: value,
+      [`${field}_error`]: '',
+    }));
+  } else {
+    setState(prev => {
+      const newState = [...prev];
+      const target = { ...newState[index], [field]: value, [`${field}_error`]: '' };
+      newState[index] = target;
+      return newState;
+    });
+  }
 };
 
-export const resetStateErrors = (setState) => {
-  setState(prev => {
-    const updated = { ...prev };
-
-    Object.keys(updated).forEach((key) => {
+export const resetStateErrors = (prevState) => {
+  if (Array.isArray(prevState)) {
+    return prevState.map(item => {
+      const updatedItem = { ...item };
+      Object.keys(updatedItem).forEach(key => {
+        if (key.endsWith('_error')) {
+          delete updatedItem[key];
+        }
+      });
+      return updatedItem;
+    });
+  } else {
+    const updated = { ...prevState };
+    Object.keys(updated).forEach(key => {
       if (key.endsWith('_error')) {
-        updated[key] = '';
+        delete updated[key];
       }
     });
-
     return updated;
-  });
+  }
 };
-
 
 export const findArray = (data, filters = {}, callback) => {
   if (!Array.isArray(data)) return [];
