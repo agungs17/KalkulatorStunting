@@ -20,7 +20,7 @@ const Navigations = () => {
   const { token, loading } = useAuth();
   const { top } = useSafeAreaInsets();
 
-  if (loading) {
+  const LoadingComponent = () => {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ActivityIndicator size="large" color={COLORS.GREEN} />
@@ -28,14 +28,14 @@ const Navigations = () => {
     );
   }
 
+  if (loading) {
+    return <LoadingComponent/>
+  }
+
   return (
     <NavigationContainer
       linking={token ? linking : undefined}
-      fallback={
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <ActivityIndicator size="large" color={COLORS.GREEN} />
-        </View>
-      }
+      fallback={<LoadingComponent/>}
     >
       <NavigationRoot />
       <Toastable statusMap={{ success: COLORS.GREEN, danger: COLORS.RED, warning: COLORS.ORANGE, info: COLORS.BLUE, }} offset={top + moderateScale(25)} position="top" animationInTiming={0} animationOutTiming={0} duration={3500} />
