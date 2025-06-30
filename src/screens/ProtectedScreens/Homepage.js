@@ -5,8 +5,8 @@ import { useAuth } from "../../context/AuthContext";
 import Text from "../../atomic/atoms/Text";
 
 const Homepage = ({ navigation }) => {
-  const { user } = useAuth() || {}
-  const { name, email, nik } = user || {}
+  const { user } = useAuth()
+  const { name, email, nik } = user
   
   const handleProfile = () => {
     navigation.navigate("Profile");

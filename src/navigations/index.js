@@ -12,8 +12,8 @@ import { useAuth } from '../context/AuthContext';
 import linking from './linking';
 
 const NavigationRoot = () => {
-  const { token } = useAuth();
-  return token ? <ProtectedRoutes /> : <PublicRoutes />;
+  const { token, user } = useAuth() || {};
+  return token && user ? <ProtectedRoutes /> : <PublicRoutes />;
 };
 
 const Navigations = () => {

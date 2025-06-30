@@ -14,11 +14,11 @@ const Stack = createStackNavigator();
 
 const ProtectedRoutes = () => {
   const navigation = useNavigation()
-  const { user } = useAuth() || {}
-  const { email_verification = false } = user || {}
+  const { user } = useAuth()
+  const { email_verification } = user
 
   useEffect(() => {
-    if(!isEmpty(user) && !email_verification) navigation.navigate('EmailVerification')
+    if(!email_verification) navigation.navigate('EmailVerification')
   }, [user])
 
   return (
