@@ -14,6 +14,9 @@ import Icon from "../../atomic/atoms/Icon";
 import { COLORS } from "../../utils/themes";
 import { getEmailVerification } from "../../services/apis/invite";
 import { getProfile } from "../../services/apis/user";
+import { horizontalScale } from "../../utils/script";
+import Button from "../../atomic/atoms/Button";
+import { deleteLogout } from "../../services/apis/auth";
 
 const COOLDOWN_SECONDS = 300;
 const STORAGE_KEY = "cooldown_expire_at";
@@ -109,43 +112,57 @@ const EmailVerification = ({navigation}) => {
     <Container
       useSafeArea
       useEarlyReturn
-      center
-      style={{ alignItems: "center", paddingHorizontal: 25 }}
     >
-      <Text
-        fontSize={22}
-        fontWeight="bold"
-        color={COLORS.GREEN}
-        textStyle={{ textAlign: "center" }}
+      <Container
+        usePaddingHorizontal
+        style={{ alignItems: "center", paddingHorizontal: 25 }}
+        center
       >
-        Verifikasi Email Dulu Yuk!
-      </Text>
+        <Text
+          fontSize={22}
+          fontWeight="bold"
+          color={COLORS.GREEN}
+          textStyle={{ textAlign: "center" }}
+        >
+          Verifikasi Email Dulu Yuk!
+        </Text>
 
-      <Text
-        fontSize={15}
-        color="gray"
-        textStyle={{ textAlign: "center" }}
-        containerStyle={{ paddingTop: 8, paddingBottom: 22 }}
+        <Text
+          fontSize={15}
+          color="gray"
+          textStyle={{ textAlign: "center" }}
+          containerStyle={{ paddingTop: 8, paddingBottom: 22 }}
+        >
+          Silahkan verifikasi email terlebih dahulu. Jika email tidak terlihat pada inbox, coba cek folder spam. Belum dapat? Kirim ulang email verifikasi!
+        </Text>
+        <TouchableOpacity onPress={handleResend} disabled={cooldown > 0 || loading}>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Icon
+              name="restore"
+              color={cooldown > 0 ? "gray" : COLORS.BLUE}
+              size={18}
+              containerStyle={{ paddingRight: 4 }}
+            />
+            <Text
+              color={cooldown > 0 ? "gray" : COLORS.BLUE}
+              fontWeight="bold"
+              fontSize={15}
+            >
+              {cooldown > 0 ? `Kirim ulang dalam ${formatTime(cooldown)}` : loading ? "Mengirim..." : "Kirim Ulang"}
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </Container>
+      <View
+        style={{
+          paddingHorizontal: horizontalScale(20),
+          paddingVertical: 15,
+          borderTopWidth: 0.5,
+          borderColor: "gray",
+        }}
       >
-        Silahkan verifikasi email terlebih dahulu. Jika email tidak terlihat pada inbox, coba cek folder spam. Belum dapat? Kirim ulang email verifikasi!
-      </Text>
-      <TouchableOpacity onPress={handleResend} disabled={cooldown > 0 || loading}>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Icon
-            name="restore"
-            color={cooldown > 0 ? "gray" : COLORS.BLUE}
-            size={18}
-            containerStyle={{ paddingRight: 4 }}
-          />
-          <Text
-            color={cooldown > 0 ? "gray" : COLORS.BLUE}
-            fontWeight="bold"
-            fontSize={15}
-          >
-            {cooldown > 0 ? `Kirim ulang dalam ${formatTime(cooldown)}` : loading ? "Mengirim..." : "Kirim Ulang"}
-          </Text>
-        </View>
-      </TouchableOpacity>
+        <Button containerStyle={{ width: "100%" }} onPress={async() => await deleteLogout()} loading={loading}>Keluar</Button>
+      </View>
     </Container>
   );
 };
