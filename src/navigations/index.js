@@ -17,7 +17,7 @@ const NavigationRoot = () => {
 };
 
 const Navigations = () => {
-  const { token, loading } = useAuth();
+  const { token, user, loading } = useAuth();
   const { top } = useSafeAreaInsets();
 
   const LoadingComponent = () => {
@@ -34,7 +34,7 @@ const Navigations = () => {
 
   return (
     <NavigationContainer
-      linking={token ? linking : undefined}
+      linking={token && user ? linking : undefined}
       fallback={<LoadingComponent/>}
     >
       <NavigationRoot />
