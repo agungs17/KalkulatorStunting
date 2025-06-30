@@ -3,7 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import configurations from '../../configurations';
 import { Alert } from 'react-native';
 import { getDeviceHeaders } from '../utils/scripts';
-// import { navigate } from './navigationService';
+import { deleteLogout } from '../apis/auth';
 
 const vercelInstance = axios.create({
   baseURL: configurations.vercelBaseUrl,
@@ -51,19 +51,13 @@ vercelInstance.interceptors.response.use(
           originalRequest.headers.Authorization = `Bearer ${newToken}`;
           
           return vercelInstance(originalRequest);
-        } else if (errorStatus ===  "Token type invalid") {
-          Alert.alert('Token', message)
         } else {
-          // logout
           Alert.alert('Token', message)
-          await AsyncStorage.removeItem('access_token');
-          // navigate('LoginScreen');
+          await deleteLogout()
         }
       } catch (refreshErr) {
-        // logout
         Alert.alert('Token', message)
-        await AsyncStorage.removeItem('access_token');
-        // navigate('LoginScreen');
+        await deleteLogout()
         return Promise.reject(refreshErr);
       }
     }

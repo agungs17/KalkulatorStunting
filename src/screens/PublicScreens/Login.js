@@ -6,14 +6,11 @@ import { Keyboard, View } from "react-native";
 import { COLORS } from "../../utils/themes";
 import TextInput from "../../atomic/atoms/TextInput";
 import Button from "../../atomic/atoms/Button";
-import { useAuth } from "../../context/AuthContext";
 import { resetStateErrors, updateStateField } from "../../utils/script";
 import { postLogin } from "../../services/apis/auth";
 import { isEmpty } from 'lodash-es'
 
 const Login = ({ navigation }) => {
-  const { loginContext } = useAuth();
-
   const [loading, setLoading] = useState(false)
   const [isError, setIsError] = useState(false)
   const [form, setForm] = useState({
@@ -33,12 +30,11 @@ const Login = ({ navigation }) => {
     setIsError(false)
     
     const res = await postLogin(form)
+
     if(!isEmpty(res?.error?.validator)) setForm((prev) => ({...prev, ...res?.error?.validator}))
     else if(!isEmpty(res?.error)) setIsError(true)
     
     setLoading(false)
-    
-    if(res.status === 200) loginContext(res?.data?.token, res?.data?.user)
   };
 
   const handleRegister = () => {
