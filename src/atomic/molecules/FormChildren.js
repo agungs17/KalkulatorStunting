@@ -81,6 +81,8 @@ const FormChildren = ({
       />
       <TextInput
         value={date_of_birth}
+        useDatePicker
+        dateMode="date"
         onChangeText={(value) => handleState("date_of_birth", value)}
         title="Tanggal Lahir Anak"
         placeholder="Masukan Tanggal Lahir Anak"

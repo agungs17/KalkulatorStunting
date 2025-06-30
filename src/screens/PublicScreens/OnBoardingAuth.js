@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Container from "../atomic/atoms/Container";
-import Image from "../atomic/atoms/Image";
-import Text from "../atomic/atoms/Text";
-import { COLORS } from "../utils/themes";
+import Container from "../../atomic/atoms/Container";
+import Image from "../../atomic/atoms/Image";
+import Text from "../../atomic/atoms/Text";
+import { COLORS } from "../../utils/themes";
 import { View } from "react-native";
-import Button from "../atomic/atoms/Button";
+import Button from "../../atomic/atoms/Button";
 
 const OnBoardingAuth = ({ navigation }) => {
   const handlePressLogin = () => {
@@ -25,7 +25,7 @@ const OnBoardingAuth = ({ navigation }) => {
         height={300}
         resizeMode="contain"
         containerStyle={{ alignSelf: "center" }}
-        source={require("../assets/image/Momwithchild.png")}
+        source={require("../../assets/image/Momwithchild.png")}
       />
       <Text
         fontWeight="bold"

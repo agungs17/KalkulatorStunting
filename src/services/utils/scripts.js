@@ -1,6 +1,14 @@
+// file ini di gunakan untuk menampung function global untuk api
+
 import { showToastable } from "react-native-toastable";
 import DeviceInfo from 'react-native-device-info';
 import configurations from "../../configurations";
+
+import dayjs from 'dayjs'
+import 'dayjs/locale/id'
+const localizedFormat = require('dayjs/plugin/localizedFormat')
+dayjs.locale('id')
+dayjs.extend(localizedFormat)
 
 export const getDeviceHeaders = async () => {
   try {
@@ -53,7 +61,7 @@ export const formatResponse = ({
     });
   } else if (status !== 200 && isToastError) {
     showToastable({
-      message: `⚠️ ${message}`,
+      message: `💥 ${message}`,
       status: 'danger',
     });
   }
@@ -64,4 +72,13 @@ export const formatResponse = ({
     data,
     error,
   };
+};
+
+export const normalizeChildrenDates = (children = []) => {
+  return children.map(child => ({
+    ...child,
+    date_of_birth: child.date_of_birth
+      ? dayjs(child.date_of_birth).format('YYYY-MM-DD')
+      : null,
+  }));
 };

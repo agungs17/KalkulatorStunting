@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import Container from "../atomic/atoms/Container";
-import Header from "../atomic/molecules/Header";
-import Text from "../atomic/atoms/Text";
-import { COLORS } from "../utils/themes";
-import Button from "../atomic/atoms/Button";
+import Container from "../../atomic/atoms/Container";
+import Header from "../../atomic/molecules/Header";
+import Text from "../../atomic/atoms/Text";
+import { COLORS } from "../../utils/themes";
+import Button from "../../atomic/atoms/Button";
 import { Keyboard, View } from "react-native";
-import { horizontalScale, resetStateErrors, updateStateField } from "../utils/script";
-import FormChildren from "../atomic/molecules/FormChildren";
-import { postRegister } from "../services/apis/auth";
+import { horizontalScale, resetStateErrors, updateStateField } from "../../utils/script";
+import FormChildren from "../../atomic/molecules/FormChildren";
+import { postRegister } from "../../services/apis/auth";
 import {isEmpty} from "lodash-es"
 
 const FinalRegister = ({navigation, route}) => {

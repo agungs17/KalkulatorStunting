@@ -1,6 +1,6 @@
 import React from 'react'
-import Container from '../atomic/atoms/Container';
-import Header from '../atomic/molecules/Header';
+import Container from '../../atomic/atoms/Container';
+import Header from '../../atomic/molecules/Header';
 
 const RiwayatBalita = () => {
     return ( 

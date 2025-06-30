@@ -1,12 +1,12 @@
 import React from "react";
-import Container from "../atomic/atoms/Container";
-import Header from "../atomic/molecules/Header";
-import Text from "../atomic/atoms/Text";
-import { COLORS } from "../utils/themes";
+import Container from "../../atomic/atoms/Container";
+import Header from "../../atomic/molecules/Header";
+import Text from "../../atomic/atoms/Text";
+import { COLORS } from "../../utils/themes";
 import { View } from "react-native";
-import Image from "../atomic/atoms/Image";
-import Button from "../atomic/atoms/Button";
-import Icon from "../atomic/atoms/Icon";
+import Image from "../../atomic/atoms/Image";
+import Button from "../../atomic/atoms/Button";
+import Icon from "../../atomic/atoms/Icon";
 
 const Profile = ({ navigation }) => {
   const handleScan = () => {
@@ -47,7 +47,7 @@ const Profile = ({ navigation }) => {
           <Image
             width={180}
             height={180}
-            source={require("../assets/image/ibuanak.png")}
+            source={require("../../assets/image/ibuanak.png")}
           />
 
           <Text

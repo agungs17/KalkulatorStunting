@@ -1,11 +1,11 @@
 import React from "react";
-import Container from "../atomic/atoms/Container";
-import Image from "../atomic/atoms/Image";
-import Header from "../atomic/molecules/Header";
-import Text from "../atomic/atoms/Text";
-import { COLORS } from "../utils/themes";
-import TextInput from "../atomic/atoms/TextInput";
-import Button from "../atomic/atoms/Button";
+import Container from "../../atomic/atoms/Container";
+import Image from "../../atomic/atoms/Image";
+import Header from "../../atomic/molecules/Header";
+import Text from "../../atomic/atoms/Text";
+import { COLORS } from "../../utils/themes";
+import TextInput from "../../atomic/atoms/TextInput";
+import Button from "../../atomic/atoms/Button";
 
 const ForgotPassword = () => {
   return (
@@ -25,7 +25,7 @@ const ForgotPassword = () => {
           height={280}
           resizeMode="contain"
           containerStyle={{ alignSelf: "center" }}
-          source={require("../assets/image/jendela.png")}
+          source={require("../../assets/image/jendela.png")}
         />
         <Text
           fontSize={17}

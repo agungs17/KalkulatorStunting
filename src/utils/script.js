@@ -3,6 +3,12 @@
 import { isNumber, isString, isInteger } from "lodash-es";
 import { Dimensions, PixelRatio, Platform } from "react-native";
 
+import dayjs from 'dayjs'
+import 'dayjs/locale/id'
+const localizedFormat = require('dayjs/plugin/localizedFormat')
+dayjs.locale('id')
+dayjs.extend(localizedFormat)
+
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
 const guidelineBaseWidth = 375;
@@ -265,3 +271,8 @@ export const configLineChart = (data, type) => {
       };
   }
 };
+
+export const dateFormatter = (date, format = 'LL') => {
+  if (date) return dayjs(date).format(format)
+  return ""
+}

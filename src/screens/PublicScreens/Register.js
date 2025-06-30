@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import Container from "../atomic/atoms/Container";
-import TextInput from "../atomic/atoms/TextInput";
-import Text from "../atomic/atoms/Text";
-import { COLORS } from "../utils/themes";
-import Header from "../atomic/molecules/Header";
-import Button from "../atomic/atoms/Button";
-import { resetStateErrors, updateStateField } from "../utils/script";
-import { postCheckUnique } from "../services/apis/auth";
+import Container from "../../atomic/atoms/Container";
+import TextInput from "../../atomic/atoms/TextInput";
+import Text from "../../atomic/atoms/Text";
+import { COLORS } from "../../utils/themes";
+import Header from "../../atomic/molecules/Header";
+import Button from "../../atomic/atoms/Button";
+import { resetStateErrors, updateStateField } from "../../utils/script";
+import { postCheckUnique } from "../../services/apis/auth";
 import { isEmpty } from 'lodash-es'
-import OptionSelect from "../atomic/atoms/OptionSelect";
+import OptionSelect from "../../atomic/atoms/OptionSelect";
 import { Keyboard } from "react-native";
 
 const Register = ({navigation}) => {
