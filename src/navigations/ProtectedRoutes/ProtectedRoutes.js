@@ -1,3 +1,5 @@
+// route disini harus login
+
 import React, { useEffect } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -8,7 +10,6 @@ import RiwayatBalita from '../../screens/ProtectedScreens/RiwayatBalita';
 import { useNavigation } from '@react-navigation/native';
 import { useAuth } from '../../context/AuthContext';
 import EmailVerfication from '../../screens/ProtectedScreens/EmailVerification';
-import {isEmpty} from 'lodash-es'
 
 const Stack = createStackNavigator();
 
