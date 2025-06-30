@@ -24,8 +24,8 @@ const TextInput = ({
 
   useDatePicker = false,
   dateMode = 'datetime', // 'date' | 'time' | 'datetime'
-  minimumDate = new Date(),
-  maximumDate
+  minimumDate,
+  maximumDate = new Date(),
 }) => {
   const [lock, setLock] = useState(secureTextEntry);
   const [open, setOpen] = useState(false);
