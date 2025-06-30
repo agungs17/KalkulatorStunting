@@ -161,7 +161,7 @@ const EmailVerification = ({navigation}) => {
           borderColor: "gray",
         }}
       >
-        <Button containerStyle={{ width: "100%" }} onPress={async() => await deleteLogout()} loading={loading}>Keluar</Button>
+        <Button containerStyle={{ width: "100%" }} onPress={async() => await deleteLogout()}>Keluar</Button>
       </View>
     </Container>
   );
