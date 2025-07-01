@@ -45,6 +45,10 @@ const Login = ({ navigation }) => {
     navigation.navigate("ForgotPassword");
   };
 
+  const disabledButton = () => {
+    return !isEmpty(email) && !isEmpty(password)
+  }
+
   return (
     <Container useEarlyReturn useSafeArea>
       <Header useBack title="" noShadow />
@@ -77,6 +81,7 @@ const Login = ({ navigation }) => {
             Lupa password?
           </Text>
           <Button
+            disabled={!disabledButton()}
             loading={loading}
             containerStyle={{ width: "100%", marginTop: 15 }}
             onPress={handleLogin}
