@@ -1,7 +1,7 @@
-import { AuthStore } from "../../context/AuthStore";
 import { resetStateErrors } from "../../utils/script";
 import vercelInstance from "../instances/vercelInstance";
 import { formatResponse, normalizeChildrenDates } from "../utils/scripts";
+import authStore from "../../zustand/authStore";
 
 export const postRegister = async(body) => {
   const { email, password, name, nik, role, children = [] } = body || {}
@@ -31,7 +31,8 @@ export const postLogin = async(body) => {
     const res = await vercelInstance.post('/auth/login', {email, password});
     const formatRes = formatResponse({ res, isToastSuccess: true });
 
-    AuthStore.set({token : formatRes?.data?.token, user : formatRes.data?.user})
+    const setData = authStore.getState().setData;
+    setData({token : formatRes?.data?.token, user : formatRes.data?.user})
 
     return formatRes
   } catch (error) {
@@ -40,16 +41,18 @@ export const postLogin = async(body) => {
 }
 
 export const deleteLogout = async() => {
+  const clear = authStore.getState().clear;
+
   try {
     const res = await vercelInstance.delete('/auth/logout');
     const formatRes = formatResponse({ res });
 
-    AuthStore.clear()
+    clear()
 
     return formatRes
   } catch (error) {
-    AuthStore.clear()
-    
+    clear()
+
     return formatResponse({ res: error?.response });
   }
 }

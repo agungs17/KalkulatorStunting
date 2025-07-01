@@ -1,11 +1,11 @@
 import React from "react";
 import Button from "../../atomic/atoms/Button";
 import { deleteLogout } from "../../services/apis/auth";
-import { useAuth } from "../../context/AuthContext";
 import Text from "../../atomic/atoms/Text";
+import authStore from "../../zustand/authStore";
 
 const Homepage = ({ navigation }) => {
-  const { user } = useAuth()
+  const { user } = authStore();
   const { name, email, nik } = user
   
   const handleProfile = () => {

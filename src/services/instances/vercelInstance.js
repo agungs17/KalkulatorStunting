@@ -1,9 +1,9 @@
 import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import configurations from '../../configurations';
 import { Alert } from 'react-native';
 import { getDeviceHeaders } from '../utils/scripts';
 import { deleteLogout } from '../apis/auth';
+import authStore from '../../zustand/authStore';
 
 const vercelInstance = axios.create({
   baseURL: configurations.vercelBaseUrl,
@@ -12,7 +12,7 @@ const vercelInstance = axios.create({
 
 vercelInstance.interceptors.request.use(
   async (config) => {
-    const token = await AsyncStorage.getItem('access_token');
+    const token = authStore.getState().token;
     const deviceHeaders = await getDeviceHeaders();
 
     config.headers = {
@@ -37,28 +37,28 @@ vercelInstance.interceptors.response.use(
     const status = error?.response?.status;
     const errorStatus = error?.response?.data?.error;
     const message = error?.response?.data?.message;
+    const { token : oldToken, clear, setData } = authStore.getState();
 
     if (status === 401 && !originalRequest._retry) {
       try {
         if(errorStatus === "Token expired") {
           originalRequest._retry = true;
           const deviceHeaders = await getDeviceHeaders();
-          const oldToken = await AsyncStorage.getItem('access_token');
-          const refreshResponse = await vercelInstance.post('/refresh-token', {token : oldToken}, { headers: { ...deviceHeaders } });
+
+          const refreshResponse = await vercelInstance.post('/auth/refresh-token', { token : oldToken }, { headers: { ...deviceHeaders }});
 
           const newToken = refreshResponse.data?.data?.token;
-          await AsyncStorage.setItem('access_token', newToken);
+          setData({ token : newToken });
           originalRequest.headers.Authorization = `Bearer ${newToken}`;
           
           return vercelInstance(originalRequest);
         } else {
           Alert.alert('Token', message)
-          await deleteLogout()
+          clear()
         }
       } catch (refreshErr) {
         Alert.alert('Token', message)
-        await deleteLogout()
-        return Promise.reject(refreshErr);
+        clear()
       }
     }
 

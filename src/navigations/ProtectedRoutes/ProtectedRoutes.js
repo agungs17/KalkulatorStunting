@@ -8,19 +8,18 @@ import Profile from '../../screens/ProtectedScreens/Profile';
 import ScanBarcode from '../../screens/ProtectedScreens/ScanBarcode';
 import RiwayatBalita from '../../screens/ProtectedScreens/RiwayatBalita';
 import { useNavigation } from '@react-navigation/native';
-import { useAuth } from '../../context/AuthContext';
 import EmailVerfication from '../../screens/ProtectedScreens/EmailVerification';
+import authStore from '../../zustand/authStore';
 
 const Stack = createStackNavigator();
 
 const ProtectedRoutes = () => {
   const navigation = useNavigation()
-  const { user } = useAuth()
-  const { email_verification } = user
+  const emailVerification = authStore(state => state.user.email_verification);
 
   useEffect(() => {
-    if(!email_verification) navigation.navigate('EmailVerification')
-  }, [user])
+    if(!emailVerification) navigation.navigate('EmailVerification')
+  }, [emailVerification])
 
   return (
     <Stack.Navigator initialRouteName='Homepage' screenOptions={{ headerShown: false }}>
