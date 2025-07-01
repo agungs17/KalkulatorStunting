@@ -14,10 +14,10 @@ const authStore = create(
           ...state,
           token: token ?? state.token,
           user: user ?? state.user,
-          hasHydrated: hasHydrated ?? state.hasHydrated,
+          hasHydrated: hasHydrated ?? state.hasHydrated
         }))
       },
-      clear: () => set((state) => ({ ...state, token: null, user: null })),
+      clear: () => set((state) => ({ ...state, token: null, user: null }))
     }),
     {
       name: "auth-storage",
