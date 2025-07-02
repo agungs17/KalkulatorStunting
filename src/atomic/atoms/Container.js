@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { KeyboardAvoidingView, Platform, ScrollView, View, SafeAreaView } from "react-native";
+import React, { Fragment, useEffect, useState } from "react";
+import { KeyboardAvoidingView, Platform, ScrollView, View, SafeAreaView, RefreshControl } from "react-native";
 import { horizontalScale } from "../../utils/script";
 import { delay } from "lodash-es";
 import { COLORS } from "../../utils/themes";
+import { isFunction } from 'lodash-es'
 
 // jika useKeyboardAvoidingView, props center tidak berfungsi gunakan style paddingTop
 const Container = ({
@@ -14,6 +15,9 @@ const Container = ({
   usePaddingHorizontal = false,
   useEarlyReturn = false,
   useKeyboardAvoidingView = false,
+  useScrollView = false,
+  refreshing = false,
+  onRefresh
 }) => {
   const [show, setShow] = useState(!useEarlyReturn);
 
@@ -34,24 +38,27 @@ const Container = ({
   };
 
   if (!show) return null;
+  const Container = useScrollView ? ScrollView : Fragment
+  const handleRefreshControl = isFunction(onRefresh) ? { refreshControl : <RefreshControl refreshing={refreshing} onRefresh={onRefresh} /> } : {}
+  const propsContainer = useScrollView ? { showsVerticalScrollIndicator : false, showsHorizontalScrollIndicator : false, ...handleRefreshControl } : {}
   const Wrapper = useSafeArea ? SafeAreaView : View;
 
-  if (useKeyboardAvoidingView) {
+  if (useKeyboardAvoidingView && useScrollView) {
     return (
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : null}
         style={{ flex: noFlex ? 0 : 1 }}
       >
-        <ScrollView keyboardShouldPersistTaps='handled'>
+        <Container keyboardShouldPersistTaps='handled' {...propsContainer}>
           <Wrapper style={propsStyle}>
             {children}
           </Wrapper>
-        </ScrollView>
+        </Container>
       </KeyboardAvoidingView>
     );
   }
 
-  return <Wrapper style={propsStyle}>{children}</Wrapper>;
+  return <Container {...propsContainer}><Wrapper style={propsStyle}>{children}</Wrapper></Container>;
 };
 
 export default Container;

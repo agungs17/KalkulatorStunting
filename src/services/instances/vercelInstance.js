@@ -2,7 +2,6 @@ import axios from 'axios';
 import configurations from '../../configurations';
 import { Alert } from 'react-native';
 import { getDeviceHeaders } from '../utils/scripts';
-import { deleteLogout } from '../apis/auth';
 import authStore from '../../zustand/authStore';
 
 const vercelInstance = axios.create({

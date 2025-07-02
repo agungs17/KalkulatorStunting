@@ -51,7 +51,7 @@ const Register = ({navigation}) => {
   return (
     <Container useEarlyReturn useSafeArea >
       <Header useBack title="" noShadow />
-      <Container useKeyboardAvoidingView usePaddingHorizontal style={{ paddingVertical:20 }}>
+      <Container useKeyboardAvoidingView useScrollView usePaddingHorizontal style={{ paddingVertical:20 }}>
       <Text
         fontSize={28}
         fontWeight="bold"

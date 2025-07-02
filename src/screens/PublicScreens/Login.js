@@ -52,7 +52,7 @@ const Login = ({ navigation }) => {
   return (
     <Container useEarlyReturn useSafeArea>
       <Header useBack title="" noShadow />
-      <Container style={{ paddingTop: 20 }} useKeyboardAvoidingView>
+      <Container style={{ paddingTop: 20 }} useKeyboardAvoidingView useScrollView>
         <View style={{ paddingHorizontal: 40, alignSelf: "center" }}>
           <Text
             fontSize={28}

@@ -50,6 +50,7 @@ const FinalRegister = ({navigation, route}) => {
       <Header useBack title="" noShadow />
       <Container
         useKeyboardAvoidingView
+        useScrollView
         usePaddingHorizontal
         style={{ paddingVertical: 20 }}
       >

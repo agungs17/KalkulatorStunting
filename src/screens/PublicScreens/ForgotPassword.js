@@ -11,7 +11,7 @@ const ForgotPassword = () => {
   return (
     <Container useEarlyReturn useSafeArea>
       <Header useBack title="" noShadow />
-      <Container usePaddingHorizontal useKeyboardAvoidingView>
+      <Container usePaddingHorizontal useKeyboardAvoidingView useScrollView>
         <Text
           fontSize={25}
           fontWeight="bold"

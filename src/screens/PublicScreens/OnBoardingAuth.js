@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Container from "../../atomic/atoms/Container";
 import Image from "../../atomic/atoms/Image";
 import Text from "../../atomic/atoms/Text";

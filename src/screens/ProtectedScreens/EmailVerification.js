@@ -5,7 +5,6 @@ import {
   BackHandler,
   AppState
 } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "@react-navigation/native";
 
 import Container from "../../atomic/atoms/Container";
@@ -17,6 +16,7 @@ import { getProfile } from "../../services/apis/user";
 import { horizontalScale } from "../../utils/script";
 import Button from "../../atomic/atoms/Button";
 import { deleteLogout } from "../../services/apis/auth";
+import { storageCooldown } from "../../storage/storageCooldown";
 
 const COOLDOWN_SECONDS = 300;
 const STORAGE_KEY = "cooldown_expire_at";
@@ -26,9 +26,9 @@ const EmailVerification = ({navigation}) => {
   const [cooldown, setCooldown] = useState(0);
 
   useEffect(() => {
-    const checkCooldown = async () => {
+    const checkCooldown = () => {
       try {
-        const saved = await AsyncStorage.getItem(STORAGE_KEY);
+        const saved = storageCooldown.getString(STORAGE_KEY);
         if (saved) {
           const expireTime = parseInt(saved, 10);
           const now = Date.now();
@@ -36,7 +36,7 @@ const EmailVerification = ({navigation}) => {
           if (diff > 0) {
             setCooldown(diff);
           } else {
-            await AsyncStorage.removeItem(STORAGE_KEY);
+            storageCooldown.delete(STORAGE_KEY);
           }
         }
       } catch (err) {
@@ -52,7 +52,7 @@ const EmailVerification = ({navigation}) => {
     const interval = setInterval(() => {
       setCooldown((prev) => {
         if (prev <= 1) {
-          AsyncStorage.removeItem(STORAGE_KEY);
+          storageCooldown.delete(STORAGE_KEY);
           clearInterval(interval);
           return 0;
         }
@@ -70,7 +70,7 @@ const EmailVerification = ({navigation}) => {
     try {
       await getEmailVerification();
       const expireAt = Date.now() + COOLDOWN_SECONDS * 1000;
-      await AsyncStorage.setItem(STORAGE_KEY, expireAt.toString());
+      storageCooldown.set(STORAGE_KEY, expireAt.toString());
       setCooldown(COOLDOWN_SECONDS);
     } catch (err) {
       console.error("Gagal kirim ulang email verifikasi:", err);
@@ -87,15 +87,15 @@ const EmailVerification = ({navigation}) => {
     }, [])
   );
 
-  useEffect(() => {
-    const syncProfile = async() => {
-        const res = await getProfile();
-        const { user } = res.data || {}
-        if (user.email_verification) navigation.reset({index: 0, routes: [{ name: 'Homepage' }]});
-    }
+  const syncProfile = async() => {
+    const res = await getProfile();
+    const { user } = res.data || {}
+    if (user.email_verification) navigation.reset({index: 0, routes: [{ name: 'Homepage' }]});
+  }
 
+  useEffect(() => {
     const onAppStateChange = async (state) => {
-      if (state === "active") syncProfile()
+      if (state === "active") await syncProfile()
     };
 
     const subscription = AppState.addEventListener("change", onAppStateChange);
@@ -114,9 +114,9 @@ const EmailVerification = ({navigation}) => {
       useEarlyReturn
     >
       <Container
-        usePaddingHorizontal
-        style={{ alignItems: "center", paddingHorizontal: 25 }}
-        center
+        style={{ alignItems: "center", paddingHorizontal: 25, paddingTop : '65%' }}
+        useScrollView
+        onRefresh={async() => await syncProfile()}
       >
         <Text
           fontSize={22}
