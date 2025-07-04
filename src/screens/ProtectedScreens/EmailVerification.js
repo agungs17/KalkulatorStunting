@@ -16,7 +16,7 @@ import { getProfile } from "../../services/apis/user";
 import { horizontalScale } from "../../utils/script";
 import Button from "../../atomic/atoms/Button";
 import { deleteLogout } from "../../services/apis/auth";
-import { storageCooldown } from "../../storage/storageCooldown";
+import { UniversalStorage } from "../../storage/UniversalStorage"; // ⬅️ Import di sini
 
 const COOLDOWN_SECONDS = 300;
 const STORAGE_KEY = "cooldown_expire_at";
@@ -26,9 +26,9 @@ const EmailVerification = ({navigation}) => {
   const [cooldown, setCooldown] = useState(0);
 
   useEffect(() => {
-    const checkCooldown = () => {
+    const checkCooldown = async () => {
       try {
-        const saved = storageCooldown.getString(STORAGE_KEY);
+        const saved = await UniversalStorage.getItem(STORAGE_KEY);
         if (saved) {
           const expireTime = parseInt(saved, 10);
           const now = Date.now();
@@ -36,7 +36,7 @@ const EmailVerification = ({navigation}) => {
           if (diff > 0) {
             setCooldown(diff);
           } else {
-            storageCooldown.delete(STORAGE_KEY);
+            await UniversalStorage.removeItem(STORAGE_KEY);
           }
         }
       } catch (err) {
@@ -52,7 +52,7 @@ const EmailVerification = ({navigation}) => {
     const interval = setInterval(() => {
       setCooldown((prev) => {
         if (prev <= 1) {
-          storageCooldown.delete(STORAGE_KEY);
+          UniversalStorage.removeItem(STORAGE_KEY);
           clearInterval(interval);
           return 0;
         }
@@ -70,7 +70,7 @@ const EmailVerification = ({navigation}) => {
     try {
       await getEmailVerification();
       const expireAt = Date.now() + COOLDOWN_SECONDS * 1000;
-      storageCooldown.set(STORAGE_KEY, expireAt.toString());
+      await UniversalStorage.setItem(STORAGE_KEY, expireAt.toString());
       setCooldown(COOLDOWN_SECONDS);
     } catch (err) {
       console.error("Gagal kirim ulang email verifikasi:", err);

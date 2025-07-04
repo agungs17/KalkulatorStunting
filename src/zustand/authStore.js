@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { nameStorageAuth, zustandStorageAuth } from "../storage/storageAuth";
+import { UniversalStorage } from "../storage/UniversalStorage";
 
 const authStore = create(
   persist(
@@ -20,8 +20,8 @@ const authStore = create(
       clear: () => set((state) => ({ ...state, token: null, user: null }))
     }),
     {
-      name: nameStorageAuth,
-      storage: createJSONStorage(() => zustandStorageAuth),
+      name: "storage-auth",
+      storage: createJSONStorage(() => UniversalStorage),
       partialize: (state) => ({ token: state.token, user: state.user }),
       onRehydrateStorage: () => (state) => state?.setData?.({ hasHydrated: true })
     }
