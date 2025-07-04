@@ -57,4 +57,5 @@ if (isDevelopment && isDebug) {
   };
 }
 
-export const UniversalStorage = storageInstance;
+const UniversalStorage = storageInstance;
+export default UniversalStorage;

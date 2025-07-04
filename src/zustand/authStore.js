@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { UniversalStorage } from "../storage/UniversalStorage";
+import UniversalStorage from "../storage/UniversalStorage";
 
 const authStore = create(
   persist(

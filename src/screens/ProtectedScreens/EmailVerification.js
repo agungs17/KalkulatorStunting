@@ -16,7 +16,7 @@ import { getProfile } from "../../services/apis/user";
 import { horizontalScale } from "../../utils/script";
 import Button from "../../atomic/atoms/Button";
 import { deleteLogout } from "../../services/apis/auth";
-import { UniversalStorage } from "../../storage/UniversalStorage"; // ⬅️ Import di sini
+import UniversalStorage from "../../storage/UniversalStorage"; // ⬅️ Import di sini
 
 const COOLDOWN_SECONDS = 300;
 const STORAGE_KEY = "cooldown_expire_at";
