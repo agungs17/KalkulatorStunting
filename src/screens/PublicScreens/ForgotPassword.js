@@ -9,30 +9,33 @@ import Button from "../../atomic/atoms/Button";
 import { resetStateErrors, updateStateField } from "../../utils/script";
 import { Keyboard } from "react-native";
 import isEmpty from "lodash/isEmpty";
-import { forgotPassword } from "../../services/apis/invite";
+import { forgotPassword, postForgotPassword } from "../../services/apis/invite";
+import { useNavigation } from "@react-navigation/native";
+
 
 
 const ForgotPassword = () => {
   const [loading, setLoading] = useState();
-
+  const [isError, setIsError] = useState(false)
   const [form, setForm] = useState({
     email: "",
     email_error: "",
   });
 
-  const { email } = form || {};
+  const { email,email_error } = form || {};
 
   const handleForgotPassword = async () => {
     Keyboard.dismiss();
     setForm(resetStateErrors(form));
     setLoading(true);
 
-    const res = await forgotPassword(form)
+    const res = await postForgotPassword(form)
     if (!isEmpty(res?.error?.validator))
       setForm((prev) => ({ ...prev, ...res?.error?.validator}));
+    else if(!isEmpty(res?.error)) setIsError(true)
 
     setLoading(false);
-    if(res.status === 200)  
+    if(res.status === 200)
       setForm({email : ""})
   };
   const disabledButton = () => {
@@ -70,6 +73,8 @@ const ForgotPassword = () => {
         <TextInput
           title=""
           placeholder="Masukan email"
+          error={email_error}
+          isError={isError}
           value={email}
           containerStyle={{ paddingTop: 32 }}
           onChangeText={(value) => updateStateField(setForm, "email", value)}
