@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../../atomic/atoms/Container";
 import Image from "../../atomic/atoms/Image";
 import Header from "../../atomic/molecules/Header";
@@ -6,8 +6,39 @@ import Text from "../../atomic/atoms/Text";
 import { COLORS } from "../../utils/themes";
 import TextInput from "../../atomic/atoms/TextInput";
 import Button from "../../atomic/atoms/Button";
+import { resetStateErrors, updateStateField } from "../../utils/script";
+import { Keyboard } from "react-native";
+import isEmpty from "lodash/isEmpty";
+import { forgotPassword } from "../../services/apis/invite";
+
 
 const ForgotPassword = () => {
+  const [loading, setLoading] = useState();
+
+  const [form, setForm] = useState({
+    email: "",
+    email_error: "",
+  });
+
+  const { email } = form || {};
+
+  const handleForgotPassword = async () => {
+    Keyboard.dismiss();
+    setForm(resetStateErrors(form));
+    setLoading(true);
+
+    const res = await forgotPassword(form)
+    if (!isEmpty(res?.error?.validator))
+      setForm((prev) => ({ ...prev, ...res?.error?.validator}));
+
+    setLoading(false);
+    if(res.status === 200)  
+      setForm({email : ""})
+  };
+  const disabledButton = () => {
+    return !isEmpty(email);
+  };
+
   return (
     <Container useEarlyReturn useSafeArea>
       <Header useBack title="" noShadow />
@@ -33,10 +64,24 @@ const ForgotPassword = () => {
           containerStyle={{ alignSelf: "center" }}
           textStyle={{ textAlign: "center" }}
         >
-          Kami siap bantu! Isi email kamu, lalu cek kotak masuk untuk reset password.
+          Kami siap bantu! Isi email kamu, lalu cek kotak masuk untuk reset
+          password.
         </Text>
-        <TextInput title="" placeholder="Masukan email" containerStyle={{ paddingTop: 32 }} />
-        <Button containerStyle={{ width:"100%" ,marginTop:15 }}>Kirim</Button>
+        <TextInput
+          title=""
+          placeholder="Masukan email"
+          value={email}
+          containerStyle={{ paddingTop: 32 }}
+          onChangeText={(value) => updateStateField(setForm, "email", value)}
+        />
+        <Button
+          containerStyle={{ width: "100%", marginTop: 15 }}
+          onPress={handleForgotPassword}
+          disabled={!disabledButton()}
+          loading={loading}
+        >
+          Kirim
+        </Button>
       </Container>
     </Container>
   );
