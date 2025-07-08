@@ -9,8 +9,8 @@ import Button from "../../atomic/atoms/Button";
 import { resetStateErrors, updateStateField } from "../../utils/script";
 import { Keyboard } from "react-native";
 import isEmpty from "lodash/isEmpty";
-import { forgotPassword, postForgotPassword } from "../../services/apis/invite";
-import { useNavigation } from "@react-navigation/native";
+import {postForgotPassword } from "../../services/apis/invite";
+
 
 
 

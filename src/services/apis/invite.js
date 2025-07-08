@@ -11,7 +11,7 @@ export const getEmailVerification = async() => {
 };
 
 // invite forgot password
-export const forgotPassword = async(body) => {
+export const postForgotPassword = async(body) => {
   const {email} = body || {}
   try {
     const res = await vercelInstance.post('/invite//send-email-forgot-password', {email});
