@@ -8,7 +8,7 @@ import ScanBarcode from "../../../screens/ProtectedScreens/ScanBarcode";
 import Artikel from "../../../screens/ProtectedScreens/Artikel";
 import { COLORS } from "../../../utils/themes";
 
-const BottomTab = () => {
+const HomepageTabTab = () => {
   const Tab = createBottomTabNavigator();
 
   return (
@@ -84,4 +84,4 @@ const BottomTab = () => {
   );
 };
 
-export default BottomTab;
+export default HomepageTabTab;
