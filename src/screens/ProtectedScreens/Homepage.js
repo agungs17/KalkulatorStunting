@@ -7,7 +7,7 @@ import Icon from "../../atomic/atoms/Icon";
 import authStore from "../../zustand/authStore";
 import HomepageIcon from "../../atomic/molecules/HomepageIcon";
 import { TouchableOpacity } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { ScrollView } from "react-native";
 
 const Homepage = ({ navigation }) => {
   const { user } = authStore();
