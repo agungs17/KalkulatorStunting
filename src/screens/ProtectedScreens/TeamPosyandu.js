@@ -4,7 +4,7 @@ import Container from "../../atomic/atoms/Container";
 import Text from "../../atomic/atoms/Text";
 import Header from "../../atomic/molecules/Header";
 import Icon from "../../atomic/atoms/Icon";
-import { ScrollView } from "react-native-gesture-handler";
+import { ScrollView } from "react-native";
 
 const TeamPosyandu = ({ navigation }) => {
 

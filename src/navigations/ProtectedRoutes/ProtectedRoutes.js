@@ -6,7 +6,6 @@ import { useNavigation } from '@react-navigation/native';
 import EmailVerfication from '../../screens/ProtectedScreens/EmailVerification';
 import authStore from '../../zustand/authStore';
 import { getProfile } from '../../services/apis/user';
-import BottomTab from './BottomTab';
 import ForgotPassword from '../../screens/PublicScreens/ForgotPassword';
 import Informasi from '../../screens/ProtectedScreens/Informasi';
 import TeamPosyandu from '../../screens/ProtectedScreens/TeamPosyandu';
@@ -14,6 +13,7 @@ import Resep from '../../screens/ProtectedScreens/Resep';
 import Perkembangan from '../../screens/ProtectedScreens/Perkembangan';
 import FormTambahTeam from '../../screens/ProtectedScreens/FormTambahTeam';
 import FormTambahAnak from '../../screens/ProtectedScreens/FormTambahAnak';
+import HomepageTab from './Tabs/HomepageTab';
 
 
 
@@ -37,8 +37,8 @@ const ProtectedRoutes = () => {
   }, [emailVerification])
 
   return (
-    <Stack.Navigator initialRouteName='BottomTab' screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="BottomTab" component={BottomTab} />
+    <Stack.Navigator initialRouteName='HomepageTab' screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="HomepageTab" component={HomepageTab} />
        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
        <Stack.Screen name="Informasi" component={Informasi} />
        <Stack.Screen name="TeamPosyandu" component={TeamPosyandu} />
