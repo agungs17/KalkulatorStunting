@@ -1,0 +1,573 @@
+{
+  "New item 0": {
+    "usia": "6-8 bulan",
+    "halaman": "9-15",
+    "resep": [
+      {
+        "nama": "Bubur Singkong Isi Ikan dan Ayam dengan Saus Jeruk",
+        "gambar": "https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/236/2025/07/05/Bubur-Singkong-Isi-Ikan-dan-Ayam-3337051172.jpg",
+        "bahan": [
+          "75 gr singkong putih, rebus dan haluskan",
+          "15 gr ikan kembung cincang halus",
+          "15 gr daging ayam cincang rebus",
+          "250 ml air kaldu ayam",
+          "5 gr minyak kelapa",
+          "20 gr bayam segar, potong halus",
+          "1 lembar daun salam",
+          "1 batang sereh",
+          "1 siung bawang merah",
+          "1 siung bawang putih",
+          "100 gr jeruk manis, ambil sarinya"
+        ],
+        "cara_membuat": [
+          "Tumis bumbu halus, lalu masukkan daun salam dan sereh.",
+          "Tambahkan air kaldu, masukkan singkong putih, daging ikan, dan ayam cincang rebus. Aduk hingga setengah matang.",
+          "Masukkan bayam, aduk hingga matang. Tambahkan air jika mengental.",
+          "Angkat dan saring atau blender. Tambahkan saus jeruk sebelum disajikan."
+        ],
+        "informasi_gizi_per_porsi": {
+          "energi": "91 kkal",
+          "protein": "3.1 gr",
+          "lemak": "3.5 gr"
+        },
+        "jumlah_porsi": 3
+      },
+      {
+        "nama": "Bubur Soto Ayam Santan",
+         "gambar": "https://tanyaners.id/wp-content/uploads/2024/10/Resep-MPASI-Bubur-Soto-Ayam-Santan.jpg",
+        "bahan": [
+          "60 gr nasi putih",
+          "45 gr daging ayam cincang",
+          "30 gr tahu",
+          "30 gr labu siam",
+          "15 gr wortel",
+          "1 lembar daun salam",
+          "1 batang sereh",
+          "1 lembar daun jeruk",
+          "5 gr minyak goreng",
+          "30 ml santan",
+          "300 ml air kaldu ayam",
+          "1 siung bawang merah",
+          "1 siung bawang putih",
+          "1 cm kunyit",
+          "1 cm jahe",
+          "100 gr jeruk (sari buah)"
+        ],
+        "cara_membuat": [
+          "Tumis bumbu halus sampai harum, masukkan ayam cincang sampai berubah warna.",
+          "Masukkan air kaldu, santan, salam, sereh, dan daun jeruk. Masak sampai mendidih.",
+          "Masukkan nasi, tahu, labu siam, dan wortel. Masak hingga semua bahan empuk.",
+          "Haluskan sesuai tekstur yang diinginkan. Sajikan hangat."
+        ],
+        "informasi_gizi_per_porsi": {
+          "energi": "96 kkal",
+          "protein": "4.6 gr",
+          "lemak": "4.1 gr"
+        },
+        "jumlah_porsi": 3
+      },
+      {
+        "nama": "Bubur Sup Daging Kacang Merah",
+        "gambar": "https://cdn0-production-images-kly.akamaized.net/m_k09g0tVpM0Qvq3Hz0auMGTnmo=/406x0:1770x1364/1200x1200/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3077386/original/006174200_1584332078-shutterstock_1604538826.jpg",
+        "bahan": [
+          "50 gr nasi",
+          "30 gr daging ayam cincang",
+          "25 gr telur ayam (½ butir)",
+          "10 gr buncis",
+          "10 gr wortel",
+          "10 gr kacang merah",
+          "10 gr daun bawang",
+          "1 batang seledri",
+          "300 ml kaldu ayam",
+          "2.5 gr minyak untuk menumis",
+          "2 siung bawang merah",
+          "2 siung bawang putih",
+          "100 gr jeruk (sari buah)"
+        ],
+        "cara_membuat": [
+          "Didihkan air kaldu ayam, masukkan kacang merah, masak sampai empuk.",
+          "Tumis bumbu halus, masukkan daging ayam cincang hingga berubah warna.",
+          "Masukkan tumisan ke kaldu, masak hingga daging empuk.",
+          "Tambahkan nasi, buncis, wortel, lalu kocokan telur.",
+          "Masak hingga matang, lalu haluskan sesuai tekstur bayi. Sajikan."
+        ],
+        "informasi_gizi_per_porsi": {
+          "energi": "98 kkal",
+          "protein": "5.1 gr",
+          "lemak": "3.6 gr"
+        },
+        "jumlah_porsi": 3
+      },
+      {
+        "nama": "Bubur Kanju Rumbi Ayam dan Udang",
+         "gambar": "https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/p1/587/2023/10/19/ikan-2337721939.png",
+        "bahan": [
+          "60 gr nasi putih",
+          "30 gr daging ayam",
+          "20 gr udang segar",
+          "15 gr wortel",
+          "15 gr jagung pipil",
+          "15 ml santan",
+          "350 ml kaldu ayam",
+          "2 lembar daun pandan",
+          "1 siung bawang merah",
+          "1 siung bawang putih",
+          "1/2 buah kapulaga",
+          "1 gr ketumbar",
+          "1 cm kayu manis",
+          "1 buah cengkeh",
+          "1/4 sdt merica",
+          "1/4 sdt jintan campur adas",
+          "1/4 buah pekak",
+          "seujung jari buah pala",
+          "50 gr pepaya (buah)"
+        ],
+        "cara_membuat": [
+          "Rebus ayam hingga setengah matang, potong dadu.",
+          "Rebus udang di air bekas rebusan ayam, buang kulit, potong.",
+          "Tumis bumbu halus dan daun pandan, tambahkan air kaldu, masak nasi hingga lembek.",
+          "Masukkan ayam, udang, wortel, dan jagung. Aduk hingga rata.",
+          "Saring sesuai tekstur yang diinginkan. Sajikan."
+        ],
+        "informasi_gizi_per_porsi": {
+          "energi": "87 kkal",
+          "protein": "5.1 gr",
+          "lemak": "2.9 gr"
+        },
+        "jumlah_porsi": 3
+      },
+      {
+        "nama": "Puding Kentang Ayam dan Telur",
+        "gambar": "https://img.mbizmarket.co.id/products/thumbs/800x800/2023/11/26/85c337eeadf3a2e57afbb2a2b07851c3.jpg",
+        "bahan": [
+          "100 gr kentang, kukus dan haluskan",
+          "30 gr ayam cincang",
+          "10 gr telur puyuh (1 butir)",
+          "15 gr tahu kecil, potong dadu kecil",
+          "15 gr wortel parut",
+          "10 gr labu kuning",
+          "15 ml santan",
+          "1 batang sereh",
+          "1 lembar daun salam",
+          "1 sdm minyak",
+          "50 ml air kaldu ayam",
+          "2 siung bawang merah",
+          "2 siung bawang putih",
+          "100 gr jeruk (sari buah)"
+        ],
+        "cara_membuat": [
+          "Tumis bumbu halus, tambahkan daun salam dan sereh.",
+          "Masukkan ayam cincang, masak sampai berubah warna.",
+          "Masukkan kentang, labu kuning, tahu, dan wortel. Aduk rata.",
+          "Tambahkan santan dan kaldu. Aduk dan matikan api.",
+          "Campur dengan telur, masukkan ke loyang tahan panas.",
+          "Kukus 20 menit. Sajikan hangat."
+        ],
+        "informasi_gizi_per_porsi": {
+          "energi": "95 kkal",
+          "protein": "4.0 gr",
+          "lemak": "3.6 gr"
+        },
+        "jumlah_porsi": 3
+      }
+    ]
+  },
+  "New item 1": {
+    "usia": "9-11 bulan",
+    "halaman": "17-23",
+    "resep": [
+      {
+        "nama": "Nasi Tim Ikan Tuna Telur Puyuh",
+        "gambar": "https://tanyaners.id/wp-content/uploads/2024/10/Resep-MPASI-Nasi-Tim-Ikan-Tuna-Telur-Puyuh.jpg",
+        "bahan": [
+          "115 gr nasi putih",
+          "30 gr ikan tuna segar, haluskan",
+          "30 gr telur puyuh (3 butir)",
+          "15 gr wortel, potong kecil",
+          "10 gr tomat, potong kecil",
+          "7.5 gr minyak kelapa",
+          "75 ml kaldu ayam",
+          "50 gr pepaya, haluskan"
+        ],
+        "cara_membuat": [
+          "Masukkan nasi, ikan tuna, telur puyuh, minyak kelapa, wortel, dan tomat ke dalam mangkuk tim.",
+          "Tambahkan kaldu ayam, aduk rata.",
+          "Tim hingga matang selama 30–40 menit.",
+          "Sajikan dengan pepaya sebagai pelengkap."
+        ],
+        "informasi_gizi_per_porsi": {
+          "energi": "120 kkal",
+          "protein": "4.6 gr",
+          "lemak": "4.3 gr"
+        },
+        "jumlah_porsi": 3
+      },
+      {
+        "nama": "Nasi Tim Ayam Lele Cincang",
+        "gambar":"https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/p3/105/2025/05/08/resep-mpasi-nasi-tim-ayam-lele-cincang-3378490541.jpg",
+        "bahan": [
+          "100 gr nasi putih",
+          "25 gr daging ayam cincang",
+          "20 gr ikan lele, kukus dan haluskan",
+          "10 gr wortel, potong kecil",
+          "100 ml santan encer",
+          "1 siung bawang putih, cincang",
+          "1 siung bawang merah, cincang",
+          "1 lembar daun salam",
+          "1 sdm minyak goreng",
+          "150 ml kaldu ayam"
+        ],
+        "cara_membuat": [
+          "Tumis bawang merah, bawang putih dan daun salam hingga harum.",
+          "Masukkan ayam, ikan lele, wortel, dan nasi.",
+          "Tuang santan dan kaldu ayam, aduk hingga rata.",
+          "Pindahkan ke mangkuk tahan panas, tim hingga matang.",
+          "Saring atau haluskan sesuai kebutuhan."
+        ],
+        "informasi_gizi_per_porsi": {
+          "energi": "125 kkal",
+          "protein": "6.0 gr",
+          "lemak": "5.0 gr"
+        },
+        "jumlah_porsi": 3
+      },
+      {
+        "nama": "Mie Kukus Telur Puyuh",
+        "gambar":"https://cdn.rri.co.id/berita/Batam/o/1729082436184-Screenshot_20240508_181512_Chrome-3411922564/j6vk3gvrvlame8q.webp",
+        "bahan": [
+          "50 gr mie telur, rebus dan potong kecil",
+          "30 gr daging ayam, cincang halus",
+          "30 gr bayam, iris halus",
+          "1 buah telur ayam",
+          "3 butir telur puyuh rebus, kupas",
+          "1 sdm tepung maizena",
+          "1 siung bawang putih",
+          "1 siung bawang merah",
+          "1/2 sdt merica",
+          "1/2 sdt garam",
+          "100 ml air kaldu"
+        ],
+        "cara_membuat": [
+          "Tumis bawang merah dan putih hingga harum.",
+          "Masukkan ayam cincang dan bayam, tumis sebentar.",
+          "Campurkan semua bahan ke dalam wadah, aduk rata.",
+          "Masukkan telur puyuh rebus di dalamnya.",
+          "Tuang adonan ke cetakan, kukus selama 30 menit.",
+          "Potong kecil dan sajikan."
+        ],
+        "informasi_gizi_per_porsi": {
+          "energi": "130 kkal",
+          "protein": "5.5 gr",
+          "lemak": "4.5 gr"
+        },
+        "jumlah_porsi": 3
+      },
+      {
+        "nama": "Tim Bubur Manado Daging dan Udang",
+        "gambar":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxCidDvhtGkn-tT25veJdxzgQLyW9YZed55g&s",
+        "bahan": [
+          "100 gr nasi putih",
+          "30 gr daging sapi cincang",
+          "30 gr udang kupas, potong kecil",
+          "30 gr labu kuning, parut",
+          "30 gr jagung serut",
+          "30 gr bayam cincang",
+          "1 lembar daun salam",
+          "1 batang sereh",
+          "100 ml santan encer",
+          "1 siung bawang merah",
+          "1 siung bawang putih",
+          "200 ml air kaldu ayam"
+        ],
+        "cara_membuat": [
+          "Tumis bumbu halus dan daun salam hingga harum.",
+          "Masukkan daging cincang, udang, dan bahan sayur lainnya.",
+          "Masukkan nasi, santan dan kaldu ayam, masak hingga rata.",
+          "Tuang ke dalam wadah tahan panas dan kukus 30 menit.",
+          "Saring atau haluskan jika diperlukan."
+        ],
+        "informasi_gizi_per_porsi": {
+          "energi": "119 kkal",
+          "protein": "6.2 gr",
+          "lemak": "4.2 gr"
+        },
+        "jumlah_porsi": 3
+      }
+    ]
+  },
+  "New item 2": {
+    "usia": "12-23 bulan",
+    "halaman": "25-31",
+    "resep": [
+      {
+        "nama": "Nasi Sup Telur Puyuh Bola Tahu Ayam",
+        "gambar":"https://tanyaners.id/wp-content/uploads/2024/10/Resep-MPASI-Nasi-Sup-Telur-Puyuh-Bola-Tahu-Ayam.jpg",
+        "bahan": [
+          "150 gr nasi putih",
+          "45 gr tahu putih",
+          "60 gr daging ayam cincang",
+          "60 gr telur puyuh rebus",
+          "30 gr wortel cincang",
+          "30 gr jagung pipil",
+          "30 gr brokoli cincang",
+          "10 gr seledri cincang",
+          "10 gr daun bawang",
+          "15 gr tepung tapioka",
+          "Garam, gula, merica secukupnya",
+          "10 gr bawang goreng"
+        ],
+        "cara_membuat": [
+          "Campurkan tahu, ayam, tepung, dan bumbu. Bentuk bulat.",
+          "Rebus bola-bola hingga mengapung.",
+          "Masak kuah sup, tambahkan wortel, jagung, brokoli, daun bawang, dan seledri.",
+          "Masukkan bola ayam dan telur puyuh. Masak sampai matang.",
+          "Sajikan dengan nasi dan taburan bawang goreng."
+        ],
+        "informasi_gizi_per_porsi": {
+          "energi": "260 kkal",
+          "protein": "10.4 gr",
+          "lemak": "10.7 gr"
+        },
+        "jumlah_porsi": 3
+      },
+      {
+        "nama": "Nasi Soto Ayam Kuah Kuning",
+        "gambar":"https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/p1/587/2023/10/23/soto-ayam-4012584564.png",
+        "bahan": [
+          "150 gr nasi putih",
+          "60 gr daging ayam rebus, suwir",
+          "50 ml santan",
+          "30 gr tauge",
+          "30 gr kol iris halus",
+          "1 batang serai",
+          "1 lembar daun salam",
+          "2 lembar daun jeruk",
+          "Bumbu halus: bawang merah, bawang putih, kunyit, kemiri",
+          "1/2 sdt garam",
+          "1/4 sdt merica",
+          "Minyak untuk menumis",
+          "Air secukupnya"
+        ],
+        "cara_membuat": [
+          "Tumis bumbu halus dengan daun salam, serai, daun jeruk sampai harum.",
+          "Masukkan ayam, air, dan santan. Masak hingga mendidih.",
+          "Masukkan kol dan tauge, masak hingga matang.",
+          "Sajikan dengan nasi dan ayam suwir."
+        ],
+        "informasi_gizi_per_porsi": {
+          "energi": "235 kkal",
+          "protein": "9.8 gr",
+          "lemak": "9.2 gr"
+        },
+        "jumlah_porsi": 3
+      },
+      {
+        "nama": "Sup Telur Puyuh Ikan Air Tawar Labu Kuning",
+        "gambar":"https://tanyaners.id/wp-content/uploads/2024/10/Resep-MPASI-Sup-Telur-Puyuh-Ikan-Air-Tawar-Labu-Kuning.jpg",
+        "bahan": [
+          "60 gr ikan nila, kukus dan suwir halus",
+          "30 gr labu kuning, potong dadu kecil",
+          "30 gr bayam, iris kasar",
+          "3 butir telur puyuh rebus",
+          "1 siung bawang putih, cincang",
+          "1 siung bawang merah, cincang",
+          "1/2 sdt garam",
+          "1/4 sdt merica",
+          "600 ml air kaldu ikan",
+          "1 sdm minyak untuk menumis"
+        ],
+        "cara_membuat": [
+          "Tumis bawang merah dan bawang putih sampai harum.",
+          "Masukkan kaldu, labu kuning, dan ikan. Masak hingga matang.",
+          "Tambahkan bayam dan telur puyuh. Rebus sebentar.",
+          "Angkat dan sajikan hangat."
+        ],
+        "informasi_gizi_per_porsi": {
+          "energi": "140 kkal",
+          "protein": "7.4 gr",
+          "lemak": "5.3 gr"
+        },
+        "jumlah_porsi": 3
+      },
+      {
+        "nama": "Nasi Ikan Kuah Kuning",
+        "gambar":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb13lSN1rpR-aFst3WEJogv4r0B64RC8Ws2g&s",
+        "bahan": [
+          "150 gr nasi putih",
+          "60 gr ikan tongkol suwir",
+          "30 gr wortel potong korek api",
+          "30 gr labu siam potong korek api",
+          "3 sdm santan",
+          "Bumbu halus: bawang merah, bawang putih, kunyit, ketumbar",
+          "1 lembar daun jeruk",
+          "1 batang serai",
+          "1/2 sdt garam",
+          "Air secukupnya"
+        ],
+        "cara_membuat": [
+          "Tumis bumbu halus dengan serai dan daun jeruk.",
+          "Masukkan air dan santan. Aduk sampai rata.",
+          "Masukkan ikan, wortel, dan labu siam. Masak sampai empuk.",
+          "Sajikan kuah di atas nasi."
+        ],
+        "informasi_gizi_per_porsi": {
+          "energi": "248 kkal",
+          "protein": "11.2 gr",
+          "lemak": "8.9 gr"
+        },
+        "jumlah_porsi": 3
+      },
+      {
+        "nama": "Nugget Tempe Ayam Sayuran",
+        "gambar":"https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/p1/828/2024/02/24/IMG_20240224_173526-962379336.jpg",
+        "bahan": [
+          "60 gr tempe, kukus dan haluskan",
+          "40 gr ayam cincang",
+          "30 gr wortel parut",
+          "20 gr daun bayam cincang",
+          "1 butir telur",
+          "1 siung bawang putih halus",
+          "1/2 sdt garam",
+          "1/4 sdt lada",
+          "1 sdm tepung terigu",
+          "Tepung panir secukupnya",
+          "Minyak untuk menggoreng"
+        ],
+        "cara_membuat": [
+          "Campurkan semua bahan jadi satu kecuali tepung panir.",
+          "Bentuk adonan, gulingkan ke tepung panir.",
+          "Kukus selama 20 menit, biarkan dingin.",
+          "Goreng hingga kuning kecoklatan.",
+          "Potong kecil-kecil sebelum disajikan."
+        ],
+        "informasi_gizi_per_porsi": {
+          "energi": "191 kkal",
+          "protein": "7.0 gr",
+          "lemak": "11.5 gr"
+        },
+        "jumlah_porsi": 3
+      },
+      {
+        "usia": "2-5 tahun",
+        "halaman": "33-40",
+        "resep": [
+          {
+            "nama": "Nasi Bakar Ayam Santan",
+            "gambar":"https://tanyaners.id/wp-content/uploads/2024/10/Resep-MPASI-Nasi-Bakar-Ayam-Santan.jpg",
+            "bahan": [
+              "150 gr nasi putih",
+              "60 gr ayam cincang",
+              "30 gr kelapa parut sangrai",
+              "50 ml santan",
+              "2 siung bawang merah",
+              "1 siung bawang putih",
+              "1 lembar daun salam",
+              "1 batang serai geprek",
+              "1 lembar daun jeruk",
+              "1/2 sdt garam",
+              "1/4 sdt gula",
+              "Daun pisang untuk membungkus"
+            ],
+            "cara_membuat": [
+              "Tumis bawang dan rempah hingga harum.",
+              "Masukkan ayam cincang, kelapa sangrai, santan, dan bumbu.",
+              "Masak hingga kering.",
+              "Ambil nasi, beri isian, bungkus daun pisang, lalu bakar.",
+              "Sajikan hangat."
+            ],
+            "informasi_gizi_per_porsi": {
+              "energi": "421 kkal",
+              "protein": "18.2 gr",
+              "lemak": "18.2 gr"
+            },
+            "jumlah_porsi": 3
+          },
+          {
+            "nama": "Nasi Sup Tabas Udang",
+            "gambar":"https://tanyaners.id/wp-content/uploads/2024/10/Resep-MPASI-Nasi-Sup-Tabas-Udang-Sayur.jpg",
+            "bahan": [
+              "100 gr nasi putih",
+              "50 gr udang kupas, cincang",
+              "30 gr wortel potong dadu",
+              "30 gr buncis iris tipis",
+              "30 gr daun bayam",
+              "1 batang daun bawang",
+              "2 siung bawang putih",
+              "500 ml air kaldu",
+              "1/2 sdt garam",
+              "1/4 sdt merica",
+              "1 sdm minyak"
+            ],
+            "cara_membuat": [
+              "Tumis bawang putih hingga harum.",
+              "Masukkan udang dan sayuran, tumis sebentar.",
+              "Tambahkan air kaldu, masak hingga sayuran matang.",
+              "Sajikan bersama nasi."
+            ],
+            "informasi_gizi_per_porsi": {
+              "energi": "310 kkal",
+              "protein": "12.5 gr",
+              "lemak": "9.4 gr"
+            },
+            "jumlah_porsi": 3
+          },
+          {
+            "nama": "Nasi Masak Ayam Kecap Sayur",
+            "gambar":"https://tanyaners.id/wp-content/uploads/2024/10/Resep-MPASI-Nasi-Masak-Ayam-Kecap-Sayur.jpg",
+            "bahan": [
+              "100 gr nasi putih",
+              "50 gr ayam cincang",
+              "30 gr kacang panjang iris kecil",
+              "30 gr wortel potong korek api",
+              "2 sdm kecap manis",
+              "1 siung bawang putih",
+              "1 siung bawang merah",
+              "1/2 sdt garam",
+              "1/4 sdt merica",
+              "1 sdm minyak"
+            ],
+            "cara_membuat": [
+              "Tumis bawang hingga harum.",
+              "Masukkan ayam, masak sampai matang.",
+              "Tambahkan sayuran, kecap, garam, merica.",
+              "Masukkan nasi, aduk rata hingga semua tercampur.",
+              "Sajikan hangat."
+            ],
+            "informasi_gizi_per_porsi": {
+              "energi": "328 kkal",
+              "protein": "14.0 gr",
+              "lemak": "10.5 gr"
+            },
+            "jumlah_porsi": 3
+          },
+          {
+            "nama": "Bola-bola Nasi Rabuk Ikan",
+            "gambar":"https://tanyaners.id/wp-content/uploads/2024/10/Resep-MPASI-Bola-bola-Nasi-Rabuk-Ikan.jpg",
+            "bahan": [
+              "150 gr nasi putih",
+              "40 gr ikan tongkol suwir sangrai",
+              "30 gr wortel parut",
+              "20 gr daun bayam rebus cincang",
+              "1 butir telur ayam",
+              "1 sdm tepung maizena",
+              "Tepung panir secukupnya",
+              "Minyak goreng secukupnya"
+            ],
+            "cara_membuat": [
+              "Campur semua bahan, bentuk bulat.",
+              "Gulingkan di tepung panir.",
+              "Goreng hingga keemasan.",
+              "Tiriskan dan sajikan."
+            ],
+            "informasi_gizi_per_porsi": {
+              "energi": "468 kkal",
+              "protein": "16.2 gr",
+              "lemak": "18.4 gr"
+            },
+            "jumlah_porsi": 3
+          }
+        ]
+      }
+    ]
+  }
+}
