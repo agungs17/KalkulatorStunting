@@ -1,7 +1,12 @@
 import React from 'react'
+import Container from '../../atomic/atoms/Container';
 
 const ScanBarcode = () => {
-    return null;
+    return (
+        <Container>
+
+        </Container>
+    );
 }
  
 export default ScanBarcode;

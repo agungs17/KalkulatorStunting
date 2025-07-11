@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-
 import OnBoardingAuth from '../../screens/PublicScreens/OnBoardingAuth';
 import Login from '../../screens/PublicScreens/Login';
 import Register from '../../screens/PublicScreens/Register';

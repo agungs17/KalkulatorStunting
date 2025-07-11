@@ -2,15 +2,20 @@
 
 import React, { useEffect, useLayoutEffect } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-
-import Homepage from '../../screens/ProtectedScreens/Homepage';
-import Profile from '../../screens/ProtectedScreens/Profile';
-import ScanBarcode from '../../screens/ProtectedScreens/ScanBarcode';
-import RiwayatBalita from '../../screens/ProtectedScreens/RiwayatBalita';
 import { useNavigation } from '@react-navigation/native';
 import EmailVerfication from '../../screens/ProtectedScreens/EmailVerification';
 import authStore from '../../zustand/authStore';
 import { getProfile } from '../../services/apis/user';
+import ForgotPassword from '../../screens/PublicScreens/ForgotPassword';
+import Informasi from '../../screens/ProtectedScreens/Informasi';
+import TeamPosyandu from '../../screens/ProtectedScreens/TeamPosyandu';
+import Resep from '../../screens/ProtectedScreens/Resep';
+import Perkembangan from '../../screens/ProtectedScreens/Perkembangan';
+import FormTambahTeam from '../../screens/ProtectedScreens/FormTambahTeam';
+import FormTambahAnak from '../../screens/ProtectedScreens/FormTambahAnak';
+import HomepageTab from './Tabs/HomepageTab';
+
+
 
 const Stack = createStackNavigator();
 
@@ -32,12 +37,16 @@ const ProtectedRoutes = () => {
   }, [emailVerification])
 
   return (
-    <Stack.Navigator initialRouteName='Homepage' screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Homepage" component={Homepage} />
+    <Stack.Navigator initialRouteName='HomepageTab' screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="HomepageTab" component={HomepageTab} />
+       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+       <Stack.Screen name="Informasi" component={Informasi} />
+       <Stack.Screen name="TeamPosyandu" component={TeamPosyandu} />
+       <Stack.Screen name="Resep" component={Resep} />
+       <Stack.Screen name="Perkembangan" component={Perkembangan} />
       <Stack.Screen name="EmailVerification" component={EmailVerfication} />
-      <Stack.Screen name="Profile" component={Profile} />
-      <Stack.Screen name="RiwayatBalita" component={RiwayatBalita} />
-      <Stack.Screen name="ScanBarcode" component={ScanBarcode} />
+      <Stack.Screen name="FormTambahTeam" component={FormTambahTeam} />
+      <Stack.Screen name="FormTambahAnak" component={FormTambahAnak} />
     </Stack.Navigator>
   );
 };
