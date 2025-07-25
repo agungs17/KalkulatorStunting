@@ -5,7 +5,9 @@ import Header from '../../atomic/molecules/Header';
 const RiwayatBalita = () => {
     return ( 
         <Container useEarlyReturn useSafeArea>
-            <Header useBack title='Riwayat Balita' noShadow/>
+        <Container usePaddingHorizontal>
+            
+        </Container>
         </Container>
      );
 }
