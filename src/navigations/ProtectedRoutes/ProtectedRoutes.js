@@ -14,6 +14,7 @@ import Perkembangan from '../../screens/ProtectedScreens/Perkembangan';
 import FormTambahTeam from '../../screens/ProtectedScreens/FormTambahTeam';
 import FormTambahAnak from '../../screens/ProtectedScreens/FormTambahAnak';
 import HomepageTab from './Tabs/HomepageTab';
+import TambahAnggotaTeam from '../../screens/ProtectedScreens/TambahAnggotaTeam';
 
 
 
@@ -47,6 +48,7 @@ const ProtectedRoutes = () => {
       <Stack.Screen name="EmailVerification" component={EmailVerfication} />
       <Stack.Screen name="FormTambahTeam" component={FormTambahTeam} />
       <Stack.Screen name="FormTambahAnak" component={FormTambahAnak} />
+      <Stack.Screen name="TambahAnggotaTeam" component={TambahAnggotaTeam} />
     </Stack.Navigator>
   );
 };
